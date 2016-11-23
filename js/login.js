@@ -40,8 +40,8 @@ $(function(){
            }
        },
        submitHandler: function(form){
-           login();
-           return false;
+          login();
+          return false;
        }
 	});
 
@@ -54,6 +54,7 @@ $(function(){
     }).done(
         function(data){
             if(data.code === 200){
+              console.log("Si tiene acceso");
                 var url = "cpanel.php"; 
                 $(location).attr('href',url);
             }
@@ -70,3 +71,4 @@ $(function(){
    }
 
 });
+

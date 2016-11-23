@@ -1,29 +1,16 @@
-<?php 
+<?php
 	include("../../controller/conexiondb.php");
-
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM usuario WHERE usuarioname = '". $username ."' AND password = '". $password ."' AND status = 'a'")){
-
+	if($result = $database->query("SELECT * FROM rol")){
 		if ($result -> num_rows > 0) {
-			
 			$jsondata["code"] = 200;
-			$jsondata["msg"] = "Si tiene acceso al sistema";
-			$jsondata["details"] = "OK";
-			
-
-			session_start();
-			$_SESSION["username"] = $username;
-
-			while($fila = mysqli_fetch_assoc($result)){
-				$_SESSION["roleid"] = $fila['roleid'];
+			$jsondata["msg"] = array();
+			while($row = $result->fetch_object()){
+				$jsondata["msg"][] = $row;
 			}
-
-
+			$jsondata["details"] = "OK";
 		}else{
 			$jsondata["code"] = 401;
 			$jsondata["msg"] = "No tiene acceso al sistema";
@@ -31,7 +18,6 @@
 		}
 
 		$result -> close();
-
 	}else{
 		echo "Error en la consulta";
 	}
@@ -41,7 +27,4 @@
     echo json_encode($jsondata, JSON_FORCE_OBJECT);
     $database->close();
     exit();
-
-	
-
 ?>

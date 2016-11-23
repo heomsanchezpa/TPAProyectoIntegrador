@@ -38,7 +38,24 @@
                 <button type="submit" class="btn btn-primary btn-md"><i class="glyphicon glyphicon-save"></i>Guardar</button>
             </div>
         </form>
+    </div>
+</div>
 
+<div class="row">&nbsp;</div>
 
+<div class="row">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <table id="tbUsers">
+            <thead>
+                <tr>
+                    <th>Clave</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Rol</th>
+                    <th>Status</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>

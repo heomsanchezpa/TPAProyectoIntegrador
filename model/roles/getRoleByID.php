@@ -1,9 +1,11 @@
-<?php 
+<?php
 	include("../../controller/conexiondb.php");
+
+	$roleid = $_POST["roleid"];
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM usuario")){
+	if($result = $database->query("SELECT * FROM rol WHERE roleid = ". $roleid ."")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();

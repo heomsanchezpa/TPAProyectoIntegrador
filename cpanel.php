@@ -21,11 +21,15 @@
 	<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="js/plugins/dataTables.responsive.min.js"></script>
 	<script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap-switch.min.js"></script>
 	
 	<script type="text/javascript" src="js/cpanel.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.growl.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
 	<link rel="stylesheet" type="text/css" href="css/sb-admin.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 
 </head>
