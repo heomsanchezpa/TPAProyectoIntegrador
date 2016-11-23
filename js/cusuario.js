@@ -104,14 +104,15 @@ $(function(){
             {
 
             	data:function(row){
-        			srt = "";
-                	if(row["status"] === "a"){
-                		srt = "Activo";
-    				}else{
-						srt = "Inactivo";
-    				}
-                	return srt;
-                }   
+                srt = '<div align="center">';
+      			    srt += '<label class="switch">';
+                srt += '<input type="checkbox" checked>';
+                srt += '<div class="slider round"></div>';
+                srt += '</label>';
+                srt +="<div>";
+                 
+                return srt;
+              }   
             },
             {
             	data: function(row){
@@ -122,13 +123,18 @@ $(function(){
                   return str;
               }  
             }
+
         ]
             
         
     });
+
+    
 });
 
-
+function checkbutton () {
+    $("[name='my-checkbox']").bootstrapSwitch();
+}
 
 function newUser(){
     $.ajax({

@@ -1,4 +1,6 @@
 <script type="text/javascript" src="js/cusuario.js"></script>
+<link rel="stylesheet" type="text/css" href="css/switch.css">
+
 
 <div class="row">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
