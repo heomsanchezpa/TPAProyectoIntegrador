@@ -80,12 +80,12 @@ and open the template in the editor.
             </div>
         </div>
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" >
         <link href="css/jquery.growl.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="js/jquery3.1.0.min.js"></script>
-        <script src="js/bootbox.min.js"></script>
-        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/jquery.growl.js" type="text/javascript"></script>
+        <script src="js/plugins/jquery-3.1.0.min.js" type="text/javascript"></script>
+        <script src="js/plugins/bootbox.min.js"></script>
+        <script src="js/plugins/jquery.validate.min.js" type="text/javascript" ></script>
+        <script src="js/plugins/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/plugins/jquery.growl.js" type="text/javascript"></script>
     </body>
 </html>
