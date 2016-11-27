@@ -22,7 +22,7 @@
 	<script type="text/javascript" src="js/plugins/dataTables.responsive.min.js"></script>
 	<script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/plugins/bootstrap-switch.min.js"></script>
-	
+	<script type="text/javascript" src="js/plugins/bootbox.min.js"></script>
 	<script type="text/javascript" src="js/cpanel.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">

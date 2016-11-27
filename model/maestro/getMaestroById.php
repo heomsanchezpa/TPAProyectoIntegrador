@@ -1,9 +1,11 @@
 <?php 
 	include("../../controller/conexiondb.php");
-
+	$no_tarjeta = $_POST["no_tarjeta"];
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM prueba")){
+	if($result = $database->query(
+		"SELECT * FROM prueba where no_tarjeta = '"
+		. $no_tarjeta ."'")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();
