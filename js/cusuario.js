@@ -13,6 +13,7 @@ $(function(){
         $.each(json.msg, function(i,row){
             console.log(row.rolename);
            $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles'); 
+           $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles2'); 
         });
     });
 
@@ -38,6 +39,52 @@ $(function(){
                required: "Capture el nombre de usuario"
            },
            password:{
+               minlength: "Introduzca al menos tres caracteres",
+               maxlength: "Introdusca menos de 20 caracteres",
+               required: "Capture una contraseña"
+           }
+       },
+       highlight: function (element){
+           $(element).closest('.form-group').addClass('has-error');
+       },
+       unhighlight: function (element){
+           $(element).closest('.form-group').removeClass('has-error');
+       },
+       errorElement: 'span',
+       errorClass: 'help-block',
+       errorPlacement: function(error, element){
+           if(element.parent('.input-group').length){
+               error.insertAfter(element.parent());
+           }else{
+               error.insertAfter(element);
+           }
+       },
+       submitHandler: function(form){
+           newUser();
+           return false;
+       }
+   });
+
+$('#frmEdiUser').validate({
+       rules:{
+           username2:{
+               minlength: 3,
+               maxlength: 20,
+               required: true
+           },
+           password2:{
+              minlength: 3,
+               maxlength: 20,
+               required: true
+           }
+       },
+       messages:{
+           username2:{
+               minlength: "Introduzca al menos tres caracteres",
+               maxlength: "Introdusca menos de 20 caracteres",
+               required: "Capture el nombre de usuario"
+           },
+           password2:{
                minlength: "Introduzca al menos tres caracteres",
                maxlength: "Introdusca menos de 20 caracteres",
                required: "Capture una contraseña"
@@ -105,10 +152,11 @@ $(function(){
 
             	data:function(row){
                 srt = '<div align="center">';
-      			    srt += '<label class="switch">';
-                srt += '<input type="checkbox" checked>';
-                srt += '<div class="slider round"></div>';
-                srt += '</label>';
+      			     if(row["status"] === "a"){
+                  srt += '<p>Activo</p>'
+                 }else{
+                  srt += '<p>Inactivo</p>'
+                 }
                 srt +="<div>";
                  
                 return srt;
@@ -118,7 +166,7 @@ $(function(){
             	data: function(row){
                   str="<div align='center'>";
                   str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick='deleteRole("+row["usuarioid"]+")'><i class='glyphicon glyphicon-trash'></i></button>";
-                  str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showRole("+row['roleid']+",\""+row['rolename']+"\")'><i class='glyphicon glyphicon-edit'></i></button>";
+                  str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showUSer("+row['usuarioid']+")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
                   return str;
               }  
@@ -131,6 +179,19 @@ $(function(){
 
     
 });
+
+function isCheked () {
+  console.log("Hola a todos");
+}
+
+
+function showUSer (userid) {
+  $('#usuarioid').val(userid);
+  $("#modalUser").modal("show");
+  console.log("El id del usuario es:" + roleid);
+}
+
+
 
 function checkbutton () {
     $("[name='my-checkbox']").bootstrapSwitch();

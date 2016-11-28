@@ -2,7 +2,7 @@ $(function (){
 	
 
 $.ajax({
-        url: "http://localhost/projecto/model/usuario/getRoleIdUser.php",
+        url: "http://localhost/TPAProyectoIntegrador/model/usuario/getRoleIdUser.php",
         type: "get",
         dataType: 'json'
     }).done(
