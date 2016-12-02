@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
 	<link rel="stylesheet" type="text/css" href="css/sb-admin.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 
 </head>

@@ -1,4 +1,14 @@
-<script type="text/javascript" src="js/cmaestro.js"></script>
+<script type="text/javascript" src="js/plugins/cmaestro.js"></script>
+<script type="text/javascript" src="js/plugins/jszip.min.js"></script>
+<script type="text/javascript" src="js/plugins/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/plugins/buttons.html5.min.js"></script>
+<script type="text/javascript" src="js/plugins/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+
+
 <div id="modalMaestro" class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -86,11 +96,11 @@
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span>
                                 <label class="control-label" for="sexf" style="margin-left: 50px">
-                                    <input class="radio" type="radio" name="sex2" value="F"> 
+                                    <input class="radio" type="radio" name="sex2" value="F">
                                     F
                                 </label>
                                 <label class="control-label" for="sexm" style="margin-left: 50px">
-                                    <input class="radio" type="radio" name="sex2" value="M"> 
+                                    <input class="radio" type="radio" name="sex2" value="M">
                                     M
                                 </label>
                             </div>
@@ -186,11 +196,11 @@
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
                     <label class="control-label" for="sexf" style="margin-left: 200px;">
-                        <input class="radio" style="margin-top: 10px; margin-left: 25px;" type="radio"  name="sex" value="F"> 
+                        <input class="radio" style="margin-top: 10px; margin-left: 25px;" type="radio"  name="sex" value="F">
                         Femenino
                     </label>
                     <label class="control-label" for="sexm" style="margin-left: 20px;">
-                        <input class="radio" type="radio" style="margin-left: 25px;"  name="sex" value="M"> 
+                        <input class="radio" type="radio" style="margin-left: 25px;"  name="sex" value="M">
                         Masculino
                     </label>
                 </div>
@@ -216,7 +226,7 @@
             <th>Sexo</th>
             <th>Administrar</th>
         </tr>
-    </thead>    
+    </thead>
 </table>
 </div>
 </div>

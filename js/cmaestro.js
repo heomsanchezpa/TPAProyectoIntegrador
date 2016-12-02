@@ -38,9 +38,29 @@ $(function(){
                   str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs'  onclick='showMaestro("+row["no_tarjeta"]+")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
                   return str;
-              }   
+              }
             },
+        ],
+        "dom": 'Bfrtip';
+        "buttons":[
+          {
+             extend: 'excelHtml5',
+             text:  'EXCEL',
+             titleAttr:  'Excel'
+         },
+         {
+             extend: 'csvHtml5',
+             text:  'CSV',
+             titleAttr:  'CSV'
+         },
+         {
+             extend: 'pdfHtml5',
+             text:  'PDF',
+             titleAttr:  'PDF'
+         }
+
         ]
+
     });
 	$('#frmMaestro').validate({
 		rules:{
@@ -188,8 +208,24 @@ $(function(){
      return false;
    }
  });
- 
+
 });
+
+$(document).ready(function() {
+    $('#tableMaestros').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
+
+
+
+
 function newMaestro(){
  $.ajax({
   url: "http://localhost/TPAProyectoIntegrador/model/maestro/newMaestro.php",
@@ -303,5 +339,7 @@ function deleteMaestro(no_tarjeta) {
             }
         }
     });
+
+
 
 }
