@@ -3,7 +3,7 @@
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM materias")){
+	if($result = $database->query("SELECT * FROM carrera")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();
@@ -24,7 +24,7 @@
 
 	header('Content-type: application/json; charset=utf-8');
     header("Cache-Control: no-store");
-    echo json_encode($jsondata);
+    echo json_encode($jsondata, JSON_FORCE_OBJECT);
     $database->close();
     exit();
 ?>
