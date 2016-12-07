@@ -419,10 +419,21 @@
             </select>
         </div>
     </div>
+    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+        <label class="control-label" for="textoIndicador">Indicador</label>
+        <div class="input-group">
+            <input class="form-control" id="textoIndicador" name="textoIndicador" placeholder="Indicador">
+        </div>
+    </div>
+    <div class="form-group col-lg-3 col-md-3  col-sm-12">
+        <div class="input-group">
+            <button type="button" onClick='agregarTextoIndicador()' class="btn btn-primary">Agregar Indicador</button>
+        </div>
+    </div>
 </div><!--row-->
 <div class="row">
     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-        <table id="tablaDesempeño" class="table">
+        <table id="tablaDesempeno" class="table">
             <thead>
             <tr>
                 <th>Desempeño</th>

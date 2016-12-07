@@ -298,6 +298,13 @@ function agregarLogro(){
     var table = 'tablaLogros';
     editCell(table,row,column,content);
 }
+function agregarTextoIndicador(){
+    var row = $('#nivelDesempeño').val();
+    var column = 2;
+    var content = $('#textoIndicador').val();
+    var table = 'tablaDesempeno';
+    editCell(table,row,column,content);
+}
 
 function agregarIndicador() {
     var body = document.getElementById("divTablaIndicadores");
@@ -332,37 +339,5 @@ function agregarIndicador() {
 
 
 }
-
-function checkbutton () {
-    $("[name='my-checkbox']").bootstrapSwitch();
-}
-
-function newUser(){
-    $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/usuario/newUser.php",
-        type: "post",
-        data: {username : $('#username').val(),
-            password : $('#password').val(),
-            roleid: $('#cbRoles').val()}
-    }).done(
-        function(data){
-            if(data.code === 200){
-                $.growl.notice({ message: data.msg });
-                $('#tbUsers').dataTable().api().ajax.reload();
-                $('#username').val('');
-                $('#password').val('');
-            }
-            else{
-                $.growl.error({ message: data.msg });
-            }
-
-        }
-    ).fail(
-        function(){
-            $.growl.error({ message: "No hay mensaje que mostrar" });
-        }
-    );
-}
-
 
 
