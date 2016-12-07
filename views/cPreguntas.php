@@ -1,7 +1,8 @@
+<script type="text/javascript" src="js/cpreguntas.js"></script>
 <div class="row">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-        <form id="frmPregunta" method="POST">
+        <form id="frmPreguntas" method="POST">
             <div class="form-group">
                 <label class="control-label" for="pregunta">Pregunta:</label>
                 <div class="input-group">
@@ -26,5 +27,20 @@
                 <button type="submit" class="btn btn-primary btn-md"><i class="glyphicon glyphicon-save"></i>Guardar</button>
             </div>
         </form>
+    </div>
+</div>
+<div><hr></div>
+<div class="row">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <table id="tbPreguntas">
+            <thead>
+                <tr>
+                    <th>Clave</th>
+                    <th>Preguntas</th>
+                    <th>Tipo</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
