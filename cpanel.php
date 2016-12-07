@@ -13,22 +13,31 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 
-	<script type="text/javascript" src="js/plugins/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/plugins/additional-methods.min.js"></script>
-	<script type="text/javascript" src="js/plugins/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/tether.min.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/plugins/jquery.growl.js"></script>
 	<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="js/plugins/dataTables.responsive.min.js"></script>
 	<script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/plugins/bootstrap-switch.min.js"></script>
-	
+
+
+
 	<script type="text/javascript" src="js/cpanel.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.growl.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-switch.min.css">
-	<link rel="stylesheet" type="text/css" href="css/sb-admin.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-table.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/sb-admin.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 

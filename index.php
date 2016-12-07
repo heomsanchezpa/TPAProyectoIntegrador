@@ -10,12 +10,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	
+
     <script type="text/javascript" src="js/plugins/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="js/plugins/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="js/plugins/additional-methods.min.js"></script>
     <script type="text/javascript" src="js/plugins/jquery.growl.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+
+
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
