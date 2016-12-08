@@ -54,8 +54,7 @@ $(function(){
     }).done(
         function(data){
             if(data.code === 200){
-              console.log("Si tiene acceso");
-                var url = "cpanel.php"; 
+                var url = "cpanel.php";
                 $(location).attr('href',url);
             }
             else{

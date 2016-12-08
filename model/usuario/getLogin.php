@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include("../../controller/conexiondb.php");
 
 	$username = $_POST["username"];

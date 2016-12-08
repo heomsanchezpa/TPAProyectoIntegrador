@@ -12,7 +12,7 @@ $(function(){
         if(json.code===200)
         $.each(json.msg, function(i,row){
             console.log(row.rolename);
-           $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles'); 
+           $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles');
         });
     });
 
@@ -74,7 +74,7 @@ $(function(){
         ajax:{
           url:"http://localhost/TPAProyectoIntegrador/model/usuario/getUsers.php"  ,
           dataSrc:function(json){
-              
+
               return json['msg'];
           }
         },
@@ -83,7 +83,7 @@ $(function(){
            		data:"usuarioid"
             },
             {
-            	data:"usuarioname"   
+            	data:"usuarioname"
             },
             {
                 data:"password"
@@ -110,9 +110,9 @@ $(function(){
                 srt += '<div class="slider round"></div>';
                 srt += '</label>';
                 srt +="<div>";
-                 
+
                 return srt;
-              }   
+              }
             },
             {
             	data: function(row){
@@ -121,15 +121,15 @@ $(function(){
                   str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showRole("+row['roleid']+",\""+row['rolename']+"\")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
                   return str;
-              }  
+              }
             }
 
         ]
-            
-        
+
+
     });
 
-    
+
 });
 
 function checkbutton () {
@@ -154,7 +154,7 @@ function newUser(){
             else{
                 $.growl.error({ message: data.msg });
             }
-            
+
         }
     ).fail(
         function(){
