@@ -12,12 +12,9 @@ $(function(){
         if(json.code===200)
         $.each(json.msg, function(i,row){
             console.log(row.rolename);
-<<<<<<< HEAD
-           $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles');
-=======
            $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles'); 
            $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles2'); 
->>>>>>> 268baff4413383fc346a6543f3c0e490287f868e
+
         });
     });
 
