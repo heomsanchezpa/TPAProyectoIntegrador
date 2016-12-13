@@ -4,7 +4,7 @@ $(function(){
 	$('#cUsuario').trigger('click');
 
 	$.ajax({
-        url: 'http://localhost/TPAProyectoIntegrador/model/roles/getRoles.php',
+        url: '/TPAProyectoIntegrador/model/roles/getRoles.php',
         type: 'GET',
         dataType: 'json'
     }).done(function (json){
@@ -120,7 +120,7 @@ $('#frmEdiUser').validate({
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:"http://localhost/TPAProyectoIntegrador/model/usuario/getUsers.php"  ,
+          url:"/TPAProyectoIntegrador/model/usuario/getUsers.php"  ,
           dataSrc:function(json){
 
               return json['msg'];
@@ -200,7 +200,7 @@ function checkbutton () {
 
 function newUser(){
     $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/usuario/newUser.php",
+        url: "/TPAProyectoIntegrador/model/usuario/newUser.php",
         type: "post",
         data: {username : $('#username').val(),
                password : $('#password').val(),

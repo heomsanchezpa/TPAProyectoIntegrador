@@ -1,7 +1,7 @@
 $(function(){
 
 		$.ajax({
-        url: 'http://localhost/TPAProyectoIntegrador/model/materias/getCarreras.php',
+        url: '/TPAProyectoIntegrador/model/materias/getCarreras.php',
         type: 'GET',
         dataType: 'json'
     }).done(function (json){
@@ -92,7 +92,7 @@ $(function(){
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:"http://localhost/TPAProyectoIntegrador/model/materias/getMaterias.php",
+          url:"/TPAProyectoIntegrador/model/materias/getMaterias.php",
           dataSrc:function(json){
               
               return json['msg'];
@@ -154,7 +154,7 @@ function showMateria (mid) {
 
 function newMateria () {
     $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/materias/newMateria.php",
+        url: "/TPAProyectoIntegrador/model/materias/newMateria.php",
         type: "post",
         data: {materiaid : $('#materiaid').val(),
                 cbNivelEscolar : $('#cbNivelEscolar').val(),
