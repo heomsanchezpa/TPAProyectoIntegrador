@@ -3,7 +3,7 @@
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM horarios")){
+	if($result = $database->query("SELECT * FROM vhorarios")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();
