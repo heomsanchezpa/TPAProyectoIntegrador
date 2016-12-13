@@ -1,15 +1,43 @@
-
 $(function(){
+	$.ajax({
+        url: '../TPAProyectoIntegrador/model/horarios/getGrupos.php',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function (json){
+        //console.log("Codigo json: "+json.code);
+        if(json.code===200)
+        $.each(json.msg, function(i,row){
+            //console.log(row.nombre_grupo);
+           $('<option></option>',{text: row.nombre_grupo}).attr('value',row.idGrupo).appendTo('#grupo'); 
+           $('<option></option>',{text: row.nombre_grupo}).attr('value',row.idGrupo).appendTo('#grupo2'); 
+        });
+    });
+	
+	$.ajax({
+        url: '../TPAProyectoIntegrador/model/horarios/getAulas.php',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function (json){
+        //console.log("Codigo json: "+json.code);
+        if(json.code===200)
+        $.each(json.msg, function(i,row){
+            //console.log(row.nombre);
+           $('<option></option>',{text: row.nombre}).attr('value',row.idAula).appendTo('#aula'); 
+		   $('<option></option>',{text: row.nombre}).attr('value',row.idAula).appendTo('#aula2'); 
+        });
+    });
+	
+	
 	$('#frmHorarios').validate({
        rules:{
            materia:{
                minlength: 3,
-               maxlength: 20,
+               maxlength: 40,
                required: true
            },
            maestro:{
            		minlength: 3,
-               maxlength: 20,
+               maxlength: 40,
                required: true
            },
            hora_ini:{
@@ -22,28 +50,25 @@ $(function(){
                maxlength: 8,
                required: true
            },
-           grupo:{
-           		minlength: 2,
-               maxlength: 2,
-               required: true
+		   grupo:{
+           	   required: true
            },
-           aula:{
-           		minlength: 2,
-               maxlength: 2,
-               required: true
-           }
-		   
-		   
+		   aula:{
+           	   required: true
+           },
+		   dias:{
+           	   required: true
+           },		
        },
        messages:{
            materia:{
                minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 20 caracteres",
+               maxlength: "Introdusca menos de 40 caracteres",
                required: "Capture el nombre de la materia"
            },
            maestro:{
                minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 20 caracteres",
+               maxlength: "Introdusca menos de 40 caracteres",
                required: "Capture el numbre del maestro"
            },
            hora_ini:{
@@ -56,16 +81,15 @@ $(function(){
                maxlength: "Introduce una hora en formato hh:mm:ss",
                required: "Introduce una hora en formato hh:mm:ss"
            },
-           aula:{
-               minlength: "Introduce una aula",
-               maxlength: "Introduce una aula",
-               required: "Introduce una aula"
+		   grupo:{
+               required: "Introduce un Grupo"
            },
-           grupo:{
-               minlength: "Introduce una grupo",
-               maxlength: "Introduce una grupo",
-               required: "Introduce una grupo"
-           }
+		   aula:{
+               required: "Introduce un Aula"
+           },		  
+		   dias:{
+               required: "Introduce un numero de dias"
+           },		  
        },
        highlight: function (element){
            $(element).closest('.form-group').addClass('has-error');
@@ -88,15 +112,13 @@ $(function(){
        }
    });
 
-
-
     $('#tbHorarios').DataTable({
     	responsive: true,
         language:{
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:"http://localhost/TPAProyectoIntegrador/model/horarios/getHorarios.php"  ,
+          url:"../TPAProyectoIntegrador/model/horarios/getHorarios.php"  ,
           dataSrc:function(json){
               
               return json['msg'];
@@ -133,8 +155,8 @@ $(function(){
                   + "\",\"" +row['maestro']
 				  + "\",\"" + row['hora_ini']
 				  + "\",\"" + row['hora_fin']
-				  + "\",\"" + row['aula']
-				  + "\",\"" + row['grupo']
+ 				  + "\",\"" + row['sgrupo']
+				  + "\",\"" + row['saula']				  
 				  + "\",\"" + row['dias']
 				  +"\")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
@@ -151,12 +173,12 @@ $(function(){
         rules: {
         materia2:{
                minlength: 3,
-               maxlength: 20,
+               maxlength: 30,
                required: true
            },
            maestro2:{
            		minlength: 3,
-               maxlength: 20,
+               maxlength: 30,
                required: true
            },
            hora_ini2:{
@@ -169,18 +191,7 @@ $(function(){
                maxlength: 8,
                required: true
            },
-           grupo2:{
-           		minlength: 2,
-               maxlength: 2,
-               required: true
-           },
-           aula2:{
-           		minlength: 2,
-               maxlength: 2,
-               required: true
-           }
-		   
-		   
+           
        },
        messages:{
            materia2:{
@@ -203,16 +214,6 @@ $(function(){
                maxlength: "Introduce una hora en formato hh:mm:ss",
                required: "Introduce una hora en formato hh:mm:ss"
            },
-           aula2:{
-               minlength: "Introduce una aula",
-               maxlength: "Introduce una aula",
-               required: "Introduce una aula"
-           },
-           grupo2:{
-               minlength: "Introduce una grupo",
-               maxlength: "Introduce una grupo",
-               required: "Introduce una grupo"
-           }
        },
         highlight: function (element) {
             $(element).closest('.form-group').addClass('has-error');
@@ -229,25 +230,21 @@ $(function(){
                 error.insertAfter(element);
             }
         },
-        submitHandler: function (form) {
-            updateHorario();
+        submitHandler: function (form) {            
             return false;
         }
     });
 	
 	 $('#btnEditHorario').on('click', function () {
         $('#frmEditHorario').submit();
+		updateHorario();
     });
     
 });
 
-function checkbutton () {
-    $("[name='my-checkbox']").bootstrapSwitch();
-}
-
 function newHorario(){
     $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/horarios/newHorario.php",
+        url: "../TPAProyectoIntegrador/model/horarios/newHorario.php",
         type: "post",
         data: {materia : $('#materia').val(),
                maestro : $('#maestro').val(),
@@ -297,7 +294,7 @@ function deleteHorario(idHorario){
         },callback: function (result) {
             if (result === true) {
                 $.ajax({
-                    url: "http://localhost/TPAProyectoIntegrador/model/horarios/deleteHorarios.php",
+                    url: "../TPAProyectoIntegrador/model/horarios/deleteHorarios.php",
                     type: "post",
                     data: {idHorario: idHorario}
                 }).done(function (data) {
@@ -325,14 +322,14 @@ function deleteHorario(idHorario){
 }
 
 
-function editHorario(idHorario2,materia2,maestro2,hora_ini2,hora_fin2,aula2,grupo2,dias2){
+function editHorario(idHorario2,materia2,maestro2,hora_ini2,hora_fin2,sgrupo2,saula2,dias2){
 	 $('#idHorario2').val(idHorario2);
 	 $('#materia2').val(materia2);
 	 $('#maestro2').val(maestro2);
 	 $('#hora_ini2').val(hora_ini2);
  	 $('#hora_fin2').val(hora_fin2);
-	 $('#grupo2').val(grupo2);
-	 $('#aula2').val(aula2);
+	 $('#grupo2').val(parseInt(sgrupo2));
+	 $('#aula2').val(parseInt(saula2));
   	 $('#dias2').val(parseInt(dias2));
 	 $("#modalHorario").modal("show");
 }
@@ -340,7 +337,7 @@ function editHorario(idHorario2,materia2,maestro2,hora_ini2,hora_fin2,aula2,grup
 function updateHorario(){
 	console.log("Paso");
     $.ajax({
-  		url: "http://localhost/TPAProyectoIntegrador/model/horarios/updateHorario.php",
+  		url: "../TPAProyectoIntegrador/model/horarios/updateHorario.php",
 		type: "post",
 		data:  $('#frmEditHorario').serialize()
 	}).done(
