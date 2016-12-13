@@ -1,6 +1,5 @@
 <script type="text/javascript" src="js/chorarios.js"></script>
 
-
 <div class="row">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -56,7 +55,9 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-education"></i>
                     </span>
-                    <input class="form-control" type="text" id="grupo" name="grupo" placeholder="Ingresa el grupo">
+                    <select name="grupo" id="grupo" class="form-control"  >
+                    <option value="" disabled="disabled" selected="selected">Selecciona un grupo</option>
+                    </select>
                 </div>
             </div>
             
@@ -66,7 +67,9 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-home"></i>
                     </span>
-                    <input class="form-control" type="text" id="aula" name="aula" placeholder="Ingresa que aula">
+                    <select name="aula" id="aula" class="form-control ">
+						<option value="" disabled="disabled" selected="selected">Selecciona un Aula</option>
+                    </select>
                 </div>
             </div>
             
@@ -77,12 +80,15 @@
                         <i class="glyphicon glyphicon-calendar"></i>
                     </span>
 					<select name="dias" id="dias" class="form-control">
-                    	<option value="1">1</option>
+   	                    <option value="" disabled="disabled" selected="selected">Selecciona el numero de dias</option>
         				<option value="2">2</option>
 			        	<option value="3">3</option>
 				        <option value="4">4</option>
                      	<option value="5">5</option>
                         <option value="6">6</option>
+                        <option value="7">7</option>
+						<option value="8">8</option>
+                        <option value="9">9</option>
                     </select>
                 </div>
             </div>                        
@@ -129,81 +135,82 @@
 	             <form class="form-horizontal" id="frmEditHorario" enctype="multipart/form-data">   
                  <input id="idHorario2" name="idHorario2"  type="hidden" />   
                  	<div class="form-group">
-		                <label class="control-label" for="materia2">Materia:</label>
         		        <div class="input-group">
 	                	    <span class="input-group-addon">
     	                	    <i class="glyphicon glyphicon-book"></i>
+                                <label class="control-label" for="materia2">Materia:</label>
 	                   		 </span>
         	            	<input class="form-control" type="text" id="materia2" name="materia2" placeholder="Ingrese el nombre de la materia">
     	            	</div>
             		</div>
-                    <div class="form-group">
-                		<label class="control-label" for="maestro2">Maestro:</label>
+                    <div class="form-group">                		
 		                <div class="input-group">
             	        	<span class="input-group-addon">
                 	        	<i class="glyphicon glyphicon-user"></i>
+                                <label class="control-label" for="maestro2">Maestro:</label>
 	                	    </span>
         	            	<input class="form-control" type="text" id="maestro2" name="maestro2" placeholder="Ingresa el rfc del maestro">
     	            	</div>
 		            </div>
-					<div class="form-group">
-                		<label class="control-label" for="hora_ini2">Hora Inicio:</label>
+					<div class="form-group">                		
 		                <div class="input-group">
         		            <span class="input-group-addon">
                 	        	<i class="glyphicon glyphicon-time"></i>
+                                <label class="control-label" for="hora_ini2">Hora Inicio:</label>
                     		</span>
                     		<input class="form-control" type="text" id="hora_ini2" name="hora_ini2" placeholder="Ingresa la hora de inicio">
                 		</div>
             		</div>            
 		            <div class="form-group">
-        		        <label class="control-label" for="hora_fin2">Hora Finalizar:</label>
                 		<div class="input-group">
                     		<span class="input-group-addon">
                         		<i class="glyphicon glyphicon-time"></i>
+									<label class="control-label" for="hora_fin2">Hora Finalizar:</label>
 		                    </span>
         		            <input class="form-control" type="text" id="hora_fin2" name="hora_fin2" placeholder="Ingresa la hora de finalizacion">
                 		</div>
             		</div>            
-		            <div class="form-group">
-        		        <label class="control-label" for="grupo2">Grupo:</label>
+		            <div class="form-group">        		        
                 		<div class="input-group">
                     		<span class="input-group-addon">
                         		<i class="glyphicon glyphicon-education"></i>
+                                <label class="control-label" for="grupo2">Grupo:</label>
                     		</span>
-                    		<input class="form-control" type="text" id="grupo2" name="grupo2" placeholder="Ingresa el grupo">
+	   		                    <select name="grupo2" id="grupo2" class="form-control" data-live-search="true"></select>
                 		</div>
             		</div>            
-		            <div class="form-group">
-        		        <label class="control-label" for="aula2">Aula:</label>
+		            <div class="form-group">        		        
                 		<div class="input-group">
                     		<span class="input-group-addon">
                         		<i class="glyphicon glyphicon-home"></i>
+                                <label class="control-label" for="aula2">Aula:</label>
                     		</span>
-                    		<input class="form-control" type="text" id="aula2" name="aula2" placeholder="Ingresa que aula">
+								<select name="aula2" id="aula2" class="form-control" data-live-search="true"></select>
                 		</div>
             		</div>            
-		            <div class="form-group">
-        		        <label class="control-label" for="dias2">Dias a la semana:</label>
+		            <div class="form-group">        		        
                 		<div class="input-group">
                     		<span class="input-group-addon">
                         		<i class="glyphicon glyphicon-calendar"></i>
+                                <label class="control-label" for="dias2">Dias a la semana:</label>
 		                    </span>
 							<select name="dias2" id="dias2" class="form-control">
-                		    	<option value="1">1</option>
-        						<option value="2">2</option>
-					        	<option value="3">3</option>
+								<option value="2">2</option>
+					        	<option value="3">3</option>	
 						        <option value="4">4</option>
                 		     	<option value="5">5</option>
                         		<option value="6">6</option>
+		                        <option value="7">7</option>
+								<option value="8">8</option>
+                		        <option value="9">9</option>
 		                    </select>
         		        </div>
             		</div>                       
                     <div class="modal-footer">              
-                    	<button  id="btnEditHorario" class="btn btn-success btn-md btn-block"><i class="glyphicon glyphicon-edit"></i> Editar</button>
+                    	<button  id="btnEditHorario" class="btn btn-warning btn-md btn-block"><i class="glyphicon glyphicon-edit"></i> Editar</button>
                     </div>
                  </form>
              </div>
     	</div>
 	</div>
-</div>
-                    
+</div>                    
