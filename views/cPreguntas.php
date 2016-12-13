@@ -19,7 +19,7 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-star"></i>
                     </span>
-                    <select class="form-control" id="tipopregunta" name="tipopregunta"></select>
+                    <input type="text" class="form-control" id="tipopregunta" name="tipopregunta" placeholder="Ingrese el Tipo">
                 </div>
             </div>
 
@@ -42,5 +42,46 @@
                 </tr>
             </thead>
         </table>
+    </div>
+</div>
+
+<div id="modalPregunta" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" 
+                    data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3>Modificar Preguntas</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frmEditPregunta">
+                    <div class="form-group">
+                        <label class="control-label" for="pregunta">Pregunta:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <input class="form-control" type="text" id="pregunta2" name="pregunta2" placeholder="Ingrese Pregunta">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="tipopregunta">Tipo</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-star"></i>
+                            </span>
+                            <input type="text" class="form-control" id="tipopregunta2" name="tipopregunta2" placeholder="Ingrese el Tipo">
+                            <input type="hidden" id="idpregunta" name="idpregunta">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-primary" id="btnModificar">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
     </div>
 </div>

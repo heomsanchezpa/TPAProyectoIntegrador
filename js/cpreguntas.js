@@ -1,68 +1,20 @@
 $(function(){
 
-		/*$.ajax({
-        url: 'http://localhost/TPAProyectoIntegrador/model/materias/getCarreras.php',
-        type: 'GET',
-        dataType: 'json'
-    }).done(function (json){
-        if(json.code===200)
-        $.each(json.msg, function(i,row){
-           $('<option></option>', {text: row.nombre}).attr('value',row.carreraid).appendTo('#cbNombreCarrera'); 
-           $('<option></option>', {text: row.nombre}).attr('value',row.carreraid).appendTo('#cbNombreCarrera2'); 
-        });
-    });*/
-
-     $('#frmPreguntas').validate({
+    $('#frmPreguntas').validate({
        rules:{
-           materiaid:{
-               minlength: 3,
-               maxlength: 20,
+           pregunta:{
                required: true
            },
-           clavearea:{
-                minlength: 3,
-                maxlength: 20,
-                required: true
-           },
-           nombremateria:{
-                minlength: 10,
-                maxlength: 50,
-                required: true
-           },
-           nombreabreviado:{
-                minlength: 1,
-                maxlength: 50,
-                required: true
-           },
-           numerocreditos:{
-                number: true,
+           tipopregunta:{
                 required: true
            }
        },
        messages:{
-            materiaid:{
-               minlength: "Minimo 3 caracteres",
-               maxlength: "Maximo 3 caracteres",
-               required: "El ID de la materia es requerido"
+            pregunta:{               
+               required: "La pregunta es requerida"
            },
-           clavearea:{
-                minlength: "Minimo 3 caracteres",
-                maxlength: "Maximo 20 caracteres",
-                required: "La clave del area es requerido"
-           },
-           nombremateria:{
-                minlength: "Minimo 10 caracteres",
-                maxlength: "Maximo 50 caracteres",
-                required: "El nombre de la materia es requerido"
-           },
-           nombreabreviado:{
-                minlength: "Minimo 1 caracteres",
-                maxlength: "Maximo 50 caracteres",
-                required: "El nombre abreviado de la materia es requerido"
-           },
-           numerocreditos:{
-                number: "Solo numeros",
-                required: "El numero de creditos es requerido"
+           tipopregunta:{
+             required: "El tipo de pregunta es requerida"
            }
        },
        highlight: function (element){
@@ -81,84 +33,180 @@ $(function(){
            }
        },
        submitHandler: function(form){
-           newMateria();
+           newPregunta();
            return false;
        }
-   });
+    });
+
+    $('#frmEditPregunta').validate({
+          rules: {
+              pregunta2: {
+                  required: true
+              },
+              tipopregunta2: {
+                  required: true
+              }
+          },
+          messages: {
+              pregunta2: {
+                  required: "Capture la pregunta"
+              },
+              tipopregunta2: {
+                  required: "Capture el tipo de pregunta"
+              }
+          },
+          highlight: function (element) {
+              $(element).closest('.form-group').addClass('has-error');
+          },
+          unhighlight: function (element) {
+              $(element).closest('.form-group').removeClass('has-error');
+          },
+          errorElement: 'span',
+          errorClass: 'help-block',
+          errorPlacement: function (error, element) {
+              if (element.parent('.input-group').length) {
+                  error.insertAfter(element.parent());
+              } else {
+                  error.insertAfter(element);
+              }
+          },
+          submitHandler: function (form) {
+              updatePregunta();
+              return false;
+          }
+    });
 
     $('#tbPreguntas').DataTable({
-        responsive: true,
         language:{
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:"http://localhost/TPAProyectoIntegrador/model/materias/getMaterias.php",
+          url:".../TPAProyectoIntegrador/model/preguntas/getPreguntas.php",
           dataSrc:function(json){
-              
+            console.log(json);
               return json['msg'];
           }
         },
         columns:[
             {
-                data:"clave"
+                data:"idPregunta"
             },
             {
-                data:"preguntas"   
+                data:"pregunta"   
             },
             {
                 data:"tipo"
             },
             {
                 data: function(row){
+                  console.log(row);
                   str="<div align='center'>";
-                  str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick='deleteMateria("+ row["materiaid"] +")'><i class='glyphicon glyphicon-trash'></i></button>";
-                  str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showMateria("+row['materiaid']+")'><i class='glyphicon glyphicon-edit'></i></button>";
+                  str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick='deletePregunta("+ row["idPregunta"] +")'><i class='glyphicon glyphicon-trash'></i></button>";
+                  str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showMateria(" + row['idPregunta'] + ",\"" + row['pregunta'] + "\",\"" + row['tipo'] + "\")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
                   return str;
               }  
             }
 
-        ]
-            
-        
+        ]   
     });
 
 
 
 });
 
-function deleteMateria (mid) {
-    console.log("hola");
-    
+function deletePregunta (id) {
+    swal(
+        {
+            title: "¿Estas seguro que deseas eliminar esta pregunta?", text: "",
+            type: "warning", showCancelButton: true,
+            confirmButtonColor: "#DD6B55", confirmButtonText: "Aceptar!",
+            cancelButtonText: "Cancelar", closeOnConfirm: false,
+            closeOnCancel: false
+        }, function (isConfirm) {
+            if (isConfirm) {
+                ///Comienza a Borrar
+                $.ajax(
+                    {
+                        url: ".../TPAProyectoIntegrador/model/preguntas/deletePreguntas.php",
+                        type: "post",
+                        data: {id:id}
+                    }
+                ).done(
+                    function (data) {
+                        //alert("Se realizó correctamente "+data.code);
+                        if (data.code == 200) {
+                            //$.growl.notice({message: data.msg});
+                            $.growl.notice({message: data.msg + " " + data.details});
+                            swal("Eliminado!", "El registro se elimino correctamente", "success");
+                            $('#tbPreguntas').dataTable().api().ajax.reload();
+                        } else {
+                            $.growl.error({message: data.msg});
+                        }
+                    }
+                ).fail(
+                    function () {
+                        $.growl.error({message: "El servidor no está disponible :("});
+                    }
+                );
+            } else {
+                swal("Cancelado", "Accion Cancelada", "error");
+            }
+        });
 }
 
-function showMateria (mid) {
-    console.log("hola");
-    
+function showMateria (id,pregunta,tipo) {
+    $('#idpregunta').val(id);
+    $('#pregunta2').val(pregunta);
+    $('#tipopregunta2').val(tipo);
+    $('#modalPregunta').modal("show");
 }
 
-function newMateria () {
+function newPregunta () {
+  console.log("Entro pregunta"+$('#pregunta').val());
     $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/materias/newMateria.php",
+        url: ".../TPAProyectoIntegrador/model/preguntas/newPreguntas.php",
         type: "post",
-        data: {materiaid : $('#materiaid').val(),
-                cbNivelEscolar : $('#cbNivelEscolar').val(),
-                cbMateriaTipo: $('#cbMateriaTipo').val(),
-                clavearea: $('#clavearea').val(),
-                nombremateria: $('#nombremateria').val(),
-                nombreabreviado: $('#nombreabreviado').val(),
-                numerocreditos: $('#numerocreditos').val(),
-                cbNombreCarrera: $('#cbNombreCarrera').val()}
+        data: {pregunta : $('#pregunta').val(),
+                tipopregunta : $('#tipopregunta').val()
+                }
+    }).done(
+        function(data){
+          console.log(data);
+            if(data.code === 200){
+                $.growl.notice({ message: data.msg });
+                $('#tbPreguntas').dataTable().api().ajax.reload();
+                $('#pregunta').val("");
+                $('#tipopregunta').val("");
+            }
+            else{
+                $.growl.error({ message: data.msg });
+            }
+            
+        }
+    ).fail(
+        function(){
+            $.growl.error({ message: "No hay mensaje que mostrar" });
+        }
+    );
+}
+function updatePregunta () {
+    $.ajax({
+        url: ".../TPAProyectoIntegrador/model/preguntas/updatePreguntas.php",
+        type: "post",
+        data: {
+          pregunta : $('#pregunta2').val(),
+          tipopregunta : $('#tipopregunta2').val(),
+          id:$('#idpregunta').val()
+        }
     }).done(
         function(data){
             if(data.code === 200){
                 $.growl.notice({ message: data.msg });
-                $('#tbMaterias').dataTable().api().ajax.reload();
-                $('#materiaid').val('');
-                $('#clavearea').val('');
-                $('#nombremateria').val('');
-                $('#nombreabreviado').val('');
-                $('#numerocreditos').val('');
+                $('#tbPreguntas').dataTable().api().ajax.reload();
+                $('#pregunta2').val('');
+                $('#tipopregunta2').val('');
+                $('#modalPregunta').modal("toggle");
             }
             else{
                 $.growl.error({ message: data.msg });
