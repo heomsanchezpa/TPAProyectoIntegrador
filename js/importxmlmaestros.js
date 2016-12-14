@@ -45,7 +45,7 @@ $(function(){
                 try {
                     xmlDoc = $.parseXML(contenido);
                     $xml = $(xmlDoc);
-                    $title = $xml.find("Alumno")
+                    $title = $xml.find("Maestro")
                     console.log(($title).text().length);
 
                     if ($title.length > 0) {
@@ -53,48 +53,27 @@ $(function(){
                             var nombre = $(this).find('Nombre').text(),
                                 apellido_pat = $(this).find('Apellidopat').text();
                                 apellido_mat = $(this).find('Apellidomat').text();
-                                carrera = $(this).find('Carrera').text();
-                                creditos_aprobados = $(this).find('Creditosapro').text();
-                                creditos_cursados = $(this).find('Creditoscursa').text();
-                                curp = $(this).find('Curp').text();
-                                email = $(this).find('Email').text();
-                                especialidad = $(this).find('Especialidad').text();
-                                fecha_nac = $(this).find('Nacimiento').text();
-                                nacionalidad = $(this).find('Nacionalidad').text();
-                                nip = $(this).find('Nip').text();
-                                no_control = $(this).find('NoControl').text();
-                                periodo_ingreso = $(this).find('Periodo').text();
-                                promedio = $(this).find('Promedio').text();
-                                reticula = $(this).find('Reticula').text();
-                                semestre = $(this).find('Semestre').text();
+                                area_academica = $(this).find('AreaAcademica').text();
+                                no_tarjeta = $(this).find('NoTarjeta').text();
+                                rfc = $(this).find('RFC').text();
                                 sexo = $(this).find('Sexo').text();
-                                status = $(this).find('Status').text();
+                                clave_area = $(this).find('ClaveArea').text();
 
 
 
                             $.ajax({
                                 data: {
-                                    nombre: nombre,
-									apellidopat: apellido_pat,
-									apellidomat: apellido_mat,
-									nocontrol: no_control,
-									carrera: carrera,
-									semestre: semestre,
-									status: status,
-									reticula: reticula,
-									nacimiento: fecha_nac,
-									curp: curp,
-									sexo: sexo,
-									periodo: periodo_ingreso,
-									promedio: promedio,
-									creditosapro: creditos_aprobados,
-									creditoscursa: creditos_cursados,
-									email: email,
-									nacionalidad: nacionalidad,
-									nip: nip,
-									especialidad: especialidad
+                                    name: nombre,
+									lastnameP: apellido_pat,
+									lastnameM: apellido_mat,
+									sex: sexo,
+                                    area_academica: area_academica,
+                                    clave_area: clave_area,
+                                    rfc: rfc,
+                                    no_tarjeta: no_tarjeta
+									
                                 },
-                                url: '/TPAProyectoIntegrador/model/alumnos/insertar.php',
+                                url: '/TPAProyectoIntegrador/model/maestro/newMaestro.php',
                                 type: 'post',
                                 beforeSend: function() {
                                     $("#resultado").html("Procesando, espere por favor...");

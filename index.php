@@ -20,6 +20,8 @@ if(isset($_SESSION["username"])){
     <script type="text/javascript" src="js/plugins/jquery.growl.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/plugins/bootbox.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.js"></script>
+
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">

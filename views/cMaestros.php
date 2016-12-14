@@ -4,10 +4,56 @@
 <script type="text/javascript" src="js/plugins/buttons.html5.min.js"></script>
 <script type="text/javascript" src="js/plugins/vfs_fonts.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.js"></script>
+<script type="text/javascript" src="js/importxmlmaestros.js"></script> 
+<script type="text/javascript" src="js/importxlsmaestro.js"></script>
+
+<!--AgregoMichel-->
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+<!--AgregoMichel-->
+<div id="modalimport" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Subir archivo:</h3>
+            </div>
+            <div class="modal-body">
+            <label class="control-label">Selecciona el archivo XML</label>
+            <input type="file" id="files" name="file" class="" accept=".xml"> <br/>
+    
+            </div>
+    
+            <div class="modal-footer">
+                <button id="btnUpImport" type="button" class="btn-sm btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div id="modalimportxls" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Subir archivo:</h3>
+            </div>
+            <div class="modal-body">
+            <label class="control-label">Selecciona el archivo XLS</label>
+            <input type="file" id="files" name="file" class="" accept=".xls"> <br/>
+    
+            </div>
+    
+            <div class="modal-footer">
+                <button id="btnUpImportxls" type="button" class="btn-sm btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/AgregoMichel-->
 
 <div id="modalMaestro" class="modal">
     <div class="modal-dialog">
@@ -211,6 +257,22 @@
         </div>
     </form>
 </div>
+<!--Agrego Michel-->
+<div class="col-md-6">
+    <h1>Importar catalogo por XML</h1>
+    <hr>
+    <br/><button class="btn btn-default" id="importxml">Importar por XML</button>
+    <hr>
+</div>
+
+<div class="col-md-6">
+    <h1>Importar catalogo por XLS</h1>
+    <hr>
+    <br/><button class="btn btn-default" id="importxls">Importar por XLS</button>
+    <hr>
+</div>
+<!--/Agrego Michel-->
+
 <div class="row">
   <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <table id="tableMaestros" class="table-responsive table-striped">
