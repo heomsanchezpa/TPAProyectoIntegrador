@@ -6,7 +6,7 @@ $no_tarjeta = $_POST["no_tarjeta"];
 $jsondata = array();
 $respuesta = 1;
 
-$sql = "delete FROM prueba where no_tarjeta = '". $no_tarjeta ."'";
+$sql = "delete FROM maestro where no_tarjeta = '". $no_tarjeta ."'";
 mysqli_query($database,$sql) or $respuesta = 0;
 
 if($respuesta == 1){

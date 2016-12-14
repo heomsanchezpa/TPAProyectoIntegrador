@@ -13,7 +13,7 @@ $sex = $_POST["sex2"];
 $jsondata = array();
 $respuesta = 1;
 
-$sql = "UPDATE prueba ". "SET name = '$name'".
+$sql = "UPDATE maestro ". "SET name = '$name'".
 			   ",lastnameP = '$lastnameP'".
 			   ",lastnameM = '$lastnameM'".
 			   ",rfc = '$rfc'".

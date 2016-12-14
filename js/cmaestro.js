@@ -8,7 +8,7 @@ $(function(){
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:"http://localhost/TPAProyectoIntegrador/model/maestro/getMaestros.php"  ,
+          url:"/TPAProyectoIntegrador/model/maestro/getMaestros.php"  ,
           dataSrc:function(json){
               console.log(json);
               return json['msg'];
@@ -228,7 +228,7 @@ $(document).ready(function() {
 
 function newMaestro(){
  $.ajax({
-  url: "http://localhost/TPAProyectoIntegrador/model/maestro/newMaestro.php",
+  url: "/TPAProyectoIntegrador/model/maestro/newMaestro.php",
   type: "post",
   data:  $('#frmMaestro').serialize()
 }).done(
@@ -248,7 +248,7 @@ function(){
 }
 function showMaestro(no_tarjeta){
  $.ajax({
-  url: "http://localhost/TPAProyectoIntegrador/model/maestro/getMaestroById.php",
+  url: "/TPAProyectoIntegrador/model/maestro/getMaestroById.php",
   type: "post",
   data:  {no_tarjeta:no_tarjeta}
 }).done(
@@ -278,7 +278,7 @@ function(){
 }
 function updateMaestro(){
  $.ajax({
-  url: "http://localhost/TPAProyectoIntegrador/model/maestro/updateMaestro.php",
+  url: "/TPAProyectoIntegrador/model/maestro/updateMaestro.php",
   type: "post",
   data:  $('#frmEditMaestro').serialize()
 }).done(
@@ -313,7 +313,7 @@ function deleteMaestro(no_tarjeta) {
         callback: function (result) {
             if (result === true) {
                 $.ajax({
-                    url: "http://localhost/TPAProyectoIntegrador/model/maestro/deleteMaestro.php",
+                    url: "/TPAProyectoIntegrador/model/maestro/deleteMaestro.php",
                     type: "post",
                     data: {no_tarjeta: no_tarjeta}
                 }).done(

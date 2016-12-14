@@ -3,7 +3,7 @@
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM prueba")){
+	if($result = $database->query("SELECT * FROM maestro")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();

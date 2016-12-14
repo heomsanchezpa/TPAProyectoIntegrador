@@ -13,7 +13,7 @@ $sex = $_POST["sex"];
 $jsondata = array();
 $respuesta = 1;
 
-$sql = "INSERT INTO prueba VALUES ('". $no_tarjeta ."','". $name ."','". $lastnameP ."','". $lastnameM ."','". $rfc ."','". $clave_area ."','". $area_academica ."','". $sex ."')";
+$sql = "INSERT INTO maestro VALUES ('". $no_tarjeta ."','". $name ."','". $lastnameP ."','". $lastnameM ."','". $rfc ."','". $clave_area ."','". $area_academica ."','". $sex ."')";
 mysqli_query($database,$sql) or $respuesta = 0;
 
 if($respuesta == 1){
