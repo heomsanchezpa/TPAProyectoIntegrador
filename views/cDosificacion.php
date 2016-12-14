@@ -8,9 +8,9 @@
                 <label class="control-label" for="periodo">Periodo</label>
                 <div class="input-group">
                     <select class="form-control" id="periodo" name="periodo">
-                        <option value="ENE-JUN 2016">ENE-JUN 2016</option>
-                        <option value="AGO-DIC 2016">AGO-DIC 2016</option>
-                        <option value="ENE-JUN 2017">ENE-JUN 2017</option>
+                        <option value="ENE-JUN 2017">ENE-JUN 2016</option>
+                        <option value="AGO-DIC 2017">AGO-DIC 2016</option>
+                        <option value="ENE-JUN 2018">ENE-JUN 2017</option>
                     </select>
                 </div>
             </div>
@@ -477,5 +477,60 @@
         </table>
     </div>
 </div><!--row-->
+<div><hr></div>
+<div class="row col-lg-12 col-md-12 col-sm-12">
+    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+        <table id="tablaMatriz" class="table">
+            <thead>
+            <tr>
+                <th rowspan="2">Evidencia de aprendizaje</th>
+                <th rowspan="2">%</th>
+                <th colspan="5" id="headMatriz">Indicador de alcance</th>
+                <th rowspan="2">Evaluación formativa de la competencia</th>
+            </tr>
+            <tr id="rowIndicadores">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+            </tr>
+            </thead>
+            <tbody id="bodyMatriz">
+            <tr id="rowTotales">
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-5 col-md-5 col-sm-12">
+            <div class="input-group">
+                <input class="form-control" id="evidenciaAprendizaje" name="evidenciaAprendizaje" placeholder="Evidencia de aprendizaje">
+            </div>
+        </div>
+        <div class="form-group col-lg-5 col-md-5 col-sm-12">
+            <div class="input-group">
+                <input class="form-control" id="evalFormComp" name="evalFormComp" placeholder="Evaluación Formativa de Competencia">
+            </div>
+        </div>
+
+        <button type="button" onClick='agregarEval2()' class="btn btn-primary col-lg-2 col-md-2 col-sm-2">Agregar evidencia</button>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-5 col-md-5 col-sm-12">
+            <div class="input-group">
+                <select class="form-control" id="indicadorEval" name="indicadorEval">
+                    <option value="2">A</option>
+                    <option value="3">B</option>
+                    <option value="4">C</option>
+                    <option value="5">D</option>
+                </select>
+            </div>
+        </div>
+        <button type="button" onClick='borrarEval()' class="btn btn-danger col-lg-2 col-md-2 col-sm-2">Quitar evidencia</button>
+    </div>
+</div>
+<button type="button" id="btnAddCompetencia" onClick='guardarYAgregarCompetencia()' class="btn btn-primary col-lg-12 col-md-12 col-sm-12">Guardar competencia</button>
 </form>
 </div>

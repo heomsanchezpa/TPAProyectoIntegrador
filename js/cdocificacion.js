@@ -1,24 +1,46 @@
 
-$(function(){
+$(function() {
+    document.getElementById("tablaMatriz").addEventListener("input", function() {
+        actualizarTotales();
+    }, false);
 
-    $('#cUsuario').trigger('click');
-
-    $.ajax({
-        url: 'http://localhost/TPAProyectoIntegrador/model/roles/getRoles.php',
+    /*$.ajax({
+        url: '/TPAProyectoIntegrador/model/materias/getMaterias.php',
         type: 'GET',
         dataType: 'json'
     }).done(function (json){
         console.log("Codigo json: "+json.code);
         if(json.code===200)
             $.each(json.msg, function(i,row){
-                console.log(row.rolename);
-                $('<option></option>', {text: row.rolename}).attr('value',row.roleid).appendTo('#cbRoles');
+                $('<option></option>', {text: row.name}).attr('value',row.id).attr('clave',row.clave).appendTo('#asignatura');
             });
-    });
+    });*///Materias
 
+    /*$.ajax({
+     url: '/TPAProyectoIntegrador/model/maestro/getMaestros.php',
+     type: 'GET',
+     dataType: 'json'
+     }).done(function (json){
+     console.log("Codigo json: "+json.code);
+     if(json.code===200)
+     $.each(json.msg, function(i,row){
+     $('<option></option>', {text: row.name}).attr('value',row.id).appendTo('#maestro');
+     });
+     });*///Maestris
 
+    /*$.ajax({
+     url: '/TPAProyectoIntegrador/model/materias/getCarreras.php',
+     type: 'GET',
+     dataType: 'json'
+     }).done(function (json){
+     console.log("Codigo json: "+json.code);
+     if(json.code===200)
+     $.each(json.msg, function(i,row){
+     $('<option></option>', {text: row.name}).attr('value',row.id).appendTo('#carrera');
+     });
+     });*///Carreras
 
-    $('#frmUser').validate({
+    /*$('#frmUser').validate({
         rules:{
             username:{
                 minlength: 3,
@@ -62,9 +84,7 @@ $(function(){
             newUser();
             return false;
         }
-    });
-
-
+    });*/
 
     $('#tbUsers').DataTable({
         responsive: true,
@@ -134,12 +154,140 @@ $(function(){
 function borrarIndicador() {
     var noind=document.getElementById("noIndicador").value;
     document.getElementById("tablaIndicadores").deleteRow(noind);
+    var tabla =document.getElementById("tablaIndicadores");
     var select =document.getElementById("noIndicador");
     while(select.childElementCount>0){
         select.removeChild(select.lastChild);
     }
+    var numIndicadores = tabla.rows.length;
+    for(var i=1;i<numIndicadores;i++){
+        var option = document.createElement("option");
+        option.setAttribute("value",i);
+        textoCelda = document.createTextNode(i);
+        option.appendChild(textoCelda);
+        select.appendChild(option);
+
+    }
 }
 
+function borrarEval() {
+    var noind=document.getElementById("indicadorEval").value;
+    document.getElementById("tablaMatriz").deleteRow(noind);
+    actualizarTotales();
+}
+
+function actualizarTotales(){
+    var tblBody = document.getElementById("bodyMatriz");
+    var table = document.getElementById("tablaMatriz");
+
+
+    var numInd = $('#tablaIndicadores tbody tr').length;
+    var numEval = $('#tablaMatriz tbody tr').length;
+    var tblrow = document.getElementById("rowTotales");
+    while(tblrow.childElementCount>0){
+        tblrow.removeChild(tblrow.lastChild);
+    }
+    var celda = document.createElement("td");
+    var textoCelda = document.createTextNode("Total");
+    celda.appendChild(textoCelda);
+    tblrow.appendChild(celda);
+    var newnumeval=numEval+1;
+    var newnumInd=numInd+2;
+    var totla=0;
+    var select =document.getElementById("indicadorEval");
+    while(select.childElementCount>0){
+        select.removeChild(select.lastChild);
+    }
+    for(var i =1;i<newnumInd;i++){//COLS
+        for(var j =2;j<newnumeval;j++){//ROWS
+            totla+=parseInt(table.rows[j].cells[i].innerHTML);
+            console.log("Valor: "+newnumInd);
+            if(i===1){
+                celda = document.createElement("option");
+                textoCelda = document.createTextNode(table.rows[j].cells[i-1].innerHTML);
+                celda.appendChild(textoCelda);
+                celda.setAttribute("value",j);
+                select.appendChild(celda);
+            }
+        }
+        celda = document.createElement("td");
+        textoCelda = document.createTextNode(totla);
+        celda.appendChild(textoCelda);
+        tblrow.appendChild(celda);
+        totla=0;
+    }
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode("");
+    celda.appendChild(textoCelda);
+    tblrow.appendChild(celda);
+
+
+}
+
+function agregarEval2() {
+    var numInd = $('#tablaIndicadores tbody tr').length;
+
+    document.getElementById("headMatriz").setAttribute("colspan",numInd);
+    var rowIndicadores = document.getElementById("rowIndicadores");
+    while(rowIndicadores.childElementCount>0){
+        rowIndicadores.removeChild(rowIndicadores.lastChild);
+    }
+
+    var tblBody = document.getElementById("bodyMatriz");
+
+    var tblrow = document.createElement("tr");
+    var celda = document.createElement("td");
+    var textoCelda = document.createTextNode($('#evidenciaAprendizaje').val());
+    celda.appendChild(textoCelda);
+    celda.setAttribute("contenteditable","true");
+    tblrow.appendChild(celda);
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode("0");
+    celda.appendChild(textoCelda);
+    celda.setAttribute("contenteditable","true");
+    tblrow.appendChild(celda);
+
+    for (var i = 0; i < numInd; i++) {
+
+        celda = document.createElement("td");
+        textoCelda = document.createTextNode("0");
+        celda.appendChild(textoCelda);
+        celda.setAttribute("contenteditable","true");
+        tblrow.appendChild(celda);
+        celda = document.createElement("th");
+        var text=i+1;
+        textoCelda = document.createTextNode(text);
+        celda.appendChild(textoCelda);
+        rowIndicadores.appendChild(celda);
+    }
+
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode($('#evalFormComp').val());
+    celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
+    tblrow.appendChild(celda);
+    tblBody.insertBefore(tblrow,document.getElementById("rowTotales"));
+    //tblBody.appendChild(tblrow);
+
+    tblrow = document.getElementById("rowTotales");
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode("Total");
+    celda.appendChild(textoCelda);
+    var newNum = numInd+1;
+    for(var j =0;j<newNum;j++){
+        celda = document.createElement("td");
+        textoCelda = document.createTextNode("0");
+        celda.appendChild(textoCelda);
+        celda.setAttribute("id","TOTAL"+j);
+        tblrow.appendChild(celda);
+    }
+    celda = document.createElement("td");
+    textoCelda = document.createTextNode("");
+    celda.appendChild(textoCelda);
+    tblrow.appendChild(celda);
+    tblBody.appendChild(tblrow);
+
+    actualizarTotales();
+}
 function generarTabla() {
     // Obtener la referencia del elemento body
     var body = document.getElementById("divTablaCalendarizacion");
@@ -163,20 +311,19 @@ function generarTabla() {
         celda = document.createElement("td");
         var j=i+1;
         textoCelda = document.createTextNode(j);
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         tblHeadrow.appendChild(celda);
     }
     tblHead.appendChild(tblHeadrow);
     var hilera = document.createElement("tr");
     celda = document.createElement("td");
     textoCelda = document.createTextNode("TP");
-    celda.appendChild(textoCelda);
     hilera.appendChild(celda);
 
     for (var j = 0; j < semanas; j++) {
         var celda = document.createElement("td");
         textoCelda = document.createTextNode("");
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         hilera.appendChild(celda);
     }
 
@@ -190,7 +337,7 @@ function generarTabla() {
     for (var j = 0; j < semanas; j++) {
         var celda = document.createElement("td");
         textoCelda = document.createTextNode("");
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         hilera.appendChild(celda);
     }
 
@@ -204,7 +351,7 @@ function generarTabla() {
     for (var j = 0; j < semanas; j++) {
         var celda = document.createElement("td");
         textoCelda = document.createTextNode("");
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         hilera.appendChild(celda);
     }
 
@@ -213,6 +360,7 @@ function generarTabla() {
     tabla.appendChild(tblBody);
     body.appendChild(tabla);
 }
+
 function generarTablaLogros() {
     // Obtener la referencia del elemento body
     var body = document.getElementById("divTablaLogros");
@@ -237,7 +385,7 @@ function generarTablaLogros() {
         celda = document.createElement("td");
         var j=i+1;
         textoCelda = document.createTextNode(j);
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         tblHeadrow.appendChild(celda);
     }
     tblHead.appendChild(tblHeadrow);
@@ -250,7 +398,7 @@ function generarTablaLogros() {
     for (var j = 0; j < competencias; j++) {
         var celda = document.createElement("td");
         textoCelda = document.createTextNode("");
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         hilera.appendChild(celda);
     }
 
@@ -264,7 +412,7 @@ function generarTablaLogros() {
     for (var j = 0; j < competencias; j++) {
         var celda = document.createElement("td");
         textoCelda = document.createTextNode("");
-        celda.appendChild(textoCelda);
+        celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
         hilera.appendChild(celda);
     }
 
@@ -314,11 +462,11 @@ function agregarIndicador() {
     var hilera = document.createElement("tr");
     var celda = document.createElement("td");
     var textoCelda = document.createTextNode(indicador.value);
-    celda.appendChild(textoCelda);
+    celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
     hilera.appendChild(celda);
     celda = document.createElement("td");
     textoCelda = document.createTextNode(valorIndicador.value);
-    celda.appendChild(textoCelda);
+    celda.appendChild(textoCelda);celda.setAttribute("contenteditable","true");
     hilera.appendChild(celda);
     tblBody.appendChild(hilera);
 
@@ -339,5 +487,9 @@ function agregarIndicador() {
 
 
 }
+function guardarYAgregarCompetencia(){
+
+}
+
 
 
