@@ -70,7 +70,7 @@
             </div>
             <div class="row">&nbsp;</div>
 
-            <button type="submit" class="btn btn-block btn-warning btn-md">Guardar</button>
+            <button type="submit" class="btn btn-block btn-success btn-md">Guardar</button>
         </form>
     </div>
 
