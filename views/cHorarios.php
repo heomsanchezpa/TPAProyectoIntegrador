@@ -15,7 +15,9 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-book"></i>
                     </span>
-                    <input class="form-control" type="text" id="materia" name="materia" placeholder="Ingrese el nombre de la materia">
+                    	<select name="materia" id="materia" class="form-control"  >
+	    	                <option value="" disabled="disabled" selected="selected">Selecciona una materia</option>
+    	                </select>
                 </div>
             </div>
 
@@ -25,7 +27,9 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input class="form-control" type="text" id="maestro" name="maestro" placeholder="Ingresa el rfc del maestro">
+					<select name="maestro" id="maestro" class="form-control"  >
+                    	<option value="" disabled="disabled" selected="selected">Selecciona un grupo</option>
+                    </select>
                 </div>
             </div>
 
@@ -140,7 +144,9 @@
     	                	    <i class="glyphicon glyphicon-book"></i>
                                 <label class="control-label" for="materia2">Materia:</label>
 	                   		 </span>
-        	            	<input class="form-control" type="text" id="materia2" name="materia2" placeholder="Ingrese el nombre de la materia">
+        	            	<select name="materia2" id="materia2" class="form-control"  >
+		    	                <option value="" disabled="disabled" selected="selected">Selecciona una materia</option>
+	    	                </select>
     	            	</div>
             		</div>
                     <div class="form-group">                		
@@ -149,7 +155,9 @@
                 	        	<i class="glyphicon glyphicon-user"></i>
                                 <label class="control-label" for="maestro2">Maestro:</label>
 	                	    </span>
-        	            	<input class="form-control" type="text" id="maestro2" name="maestro2" placeholder="Ingresa el rfc del maestro">
+        	            	<select name="maestro2" id="maestro2" class="form-control"  >
+        		            	<option value="" disabled="disabled" selected="selected">Selecciona un grupo</option>
+		                    </select>
     	            	</div>
 		            </div>
 					<div class="form-group">                		

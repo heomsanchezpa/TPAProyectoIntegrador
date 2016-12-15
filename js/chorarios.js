@@ -27,17 +27,40 @@ $(function(){
         });
     });
 	
+	$.ajax({
+        url: '../TPAProyectoIntegrador/model/horarios/getMaestros.php',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function (json){
+        //console.log("Codigo json: "+json.code);
+        if(json.code===200)
+        $.each(json.msg, function(i,row){
+            //console.log(row.nombre_maestro);
+           $('<option></option>',{text: row.nombre_maestro}).attr('value',row.idMaestro).appendTo('#maestro'); 
+		   $('<option></option>',{text: row.nombre_maestro}).attr('value',row.idMaestro).appendTo('#maestro2'); 
+        });
+    });
+	
+	$.ajax({
+        url: '../TPAProyectoIntegrador/model/horarios/getMaterias.php',
+        type: 'GET',
+        dataType: 'json'
+    }).done(function (json){
+        //console.log("Codigo json: "+json.code);
+        if(json.code===200)
+        $.each(json.msg, function(i,row){
+            //console.log(row.nombre);
+           $('<option></option>',{text: row.nombre_materia}).attr('value',row.idMateria).appendTo('#materia'); 
+		   $('<option></option>',{text: row.nombre_materia}).attr('value',row.idMateria).appendTo('#materia2'); 
+        });
+    });
 	
 	$('#frmHorarios').validate({
        rules:{
            materia:{
-               minlength: 3,
-               maxlength: 40,
                required: true
            },
            maestro:{
-           		minlength: 3,
-               maxlength: 40,
                required: true
            },
            hora_ini:{
@@ -61,14 +84,10 @@ $(function(){
            },		
        },
        messages:{
-           materia:{
-               minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 40 caracteres",
+           materia:{              
                required: "Capture el nombre de la materia"
            },
            maestro:{
-               minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 40 caracteres",
                required: "Capture el numbre del maestro"
            },
            hora_ini:{
@@ -151,8 +170,8 @@ $(function(){
                   str="<div align='center'>";
                   str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick='deleteHorario("+row["idHorario"]+")'><i class='glyphicon glyphicon-trash'></i></button>";
                   str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick ='editHorario("+row['idHorario']
-				  + ",\"" + row['materia']
-                  + "\",\"" +row['maestro']
+				  + ",\"" + row['smateria']
+                  + "\",\"" +row['smaestro']
 				  + "\",\"" + row['hora_ini']
 				  + "\",\"" + row['hora_fin']
  				  + "\",\"" + row['sgrupo']
@@ -170,17 +189,7 @@ $(function(){
     });
 	
 	$('#frmEditHorario').validate({
-        rules: {
-        materia2:{
-               minlength: 3,
-               maxlength: 30,
-               required: true
-           },
-           maestro2:{
-           		minlength: 3,
-               maxlength: 30,
-               required: true
-           },
+        rules: {       
            hora_ini2:{
            		minlength: 8,
                maxlength: 8,
@@ -194,16 +203,6 @@ $(function(){
            
        },
        messages:{
-           materia2:{
-               minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 20 caracteres",
-               required: "Capture el nombre de la materia"
-           },
-           maestro2:{
-               minlength: "Introduzca al menos tres caracteres",
-               maxlength: "Introdusca menos de 20 caracteres",
-               required: "Capture el numbre del maestro"
-           },
            hora_ini2:{
                minlength: "Introduce una hora en formato hh:mm:ss",
                maxlength: "Introduce una hora en formato hh:mm:ss",
@@ -322,10 +321,10 @@ function deleteHorario(idHorario){
 }
 
 
-function editHorario(idHorario2,materia2,maestro2,hora_ini2,hora_fin2,sgrupo2,saula2,dias2){
+function editHorario(idHorario2,smateria2,smaestro2,hora_ini2,hora_fin2,sgrupo2,saula2,dias2){
 	 $('#idHorario2').val(idHorario2);
-	 $('#materia2').val(materia2);
-	 $('#maestro2').val(maestro2);
+	 $('#materia2').val(parseInt(smateria2));
+	 $('#maestro2').val(parseInt(smaestro2));
 	 $('#hora_ini2').val(hora_ini2);
  	 $('#hora_fin2').val(hora_fin2);
 	 $('#grupo2').val(parseInt(sgrupo2));
@@ -335,7 +334,6 @@ function editHorario(idHorario2,materia2,maestro2,hora_ini2,hora_fin2,sgrupo2,sa
 }
 
 function updateHorario(){
-	console.log("Paso");
     $.ajax({
   		url: "../TPAProyectoIntegrador/model/horarios/updateHorario.php",
 		type: "post",
