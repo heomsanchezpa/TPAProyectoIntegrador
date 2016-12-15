@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	if(isset($_SESSION["username"])){
-		
+
 	}else{
 		header("location: index.php");
 	}
@@ -26,6 +26,11 @@
 	<script type="text/javascript" src="js/plugins/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/plugins/bootstrap-switch.min.js"></script>
 	<script type="text/javascript" src="js/plugins/bootbox.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jszip.min.js"></script>
+<script type="text/javascript" src="js/plugins/pdfmake.min.js"></script>
+<script type="text/javascript" src="js/plugins/buttons.html5.min.js"></script>
+<script type="text/javascript" src="js/plugins/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
 	<script type="text/javascript" src="js/cpanel.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/tether.min.css">
@@ -159,7 +164,7 @@
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div id="nav" class="collapse navbar-collapse navbar-ex1-collapse">
-                
+
             </div>
             <!-- /.navbar-collapse -->
         </nav>

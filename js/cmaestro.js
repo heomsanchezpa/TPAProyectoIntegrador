@@ -41,7 +41,7 @@ $(function(){
               }
             },
         ],
-        "dom": 'Bfrtip';
+        "dom": 'Bfrtip',
         "buttons":[
           {
              extend: 'excelHtml5',
