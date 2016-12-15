@@ -81,7 +81,7 @@ $(function(){
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-          url:".../TPAProyectoIntegrador/model/preguntas/getPreguntas.php",
+          url:"TPAProyectoIntegrador/model/preguntas/getPreguntas.php",
           dataSrc:function(json){
             console.log(json);
               return json['msg'];
@@ -128,7 +128,7 @@ function deletePregunta (id) {
                 ///Comienza a Borrar
                 $.ajax(
                     {
-                        url: ".../TPAProyectoIntegrador/model/preguntas/deletePreguntas.php",
+                        url: "TPAProyectoIntegrador/model/preguntas/deletePreguntas.php",
                         type: "post",
                         data: {id:id}
                     }
@@ -165,7 +165,7 @@ function showMateria (id,pregunta,tipo) {
 function newPregunta () {
   console.log("Entro pregunta"+$('#pregunta').val());
     $.ajax({
-        url: ".../TPAProyectoIntegrador/model/preguntas/newPreguntas.php",
+        url: "TPAProyectoIntegrador/model/preguntas/newPreguntas.php",
         type: "post",
         data: {pregunta : $('#pregunta').val(),
                 tipopregunta : $('#tipopregunta').val()
@@ -192,7 +192,7 @@ function newPregunta () {
 }
 function updatePregunta () {
     $.ajax({
-        url: ".../TPAProyectoIntegrador/model/preguntas/updatePreguntas.php",
+        url: "TPAProyectoIntegrador/model/preguntas/updatePreguntas.php",
         type: "post",
         data: {
           pregunta : $('#pregunta2').val(),
