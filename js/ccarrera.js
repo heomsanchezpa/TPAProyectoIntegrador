@@ -46,7 +46,7 @@ $(function() {
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
         ajax:{
-            url:"http://localhost/TPAProyectoIntegrador/model/carrera/GetCarreras.php"  ,
+            url:"/TPAProyectoIntegrador/model/carrera/GetCarreras.php"  ,
             dataSrc:function(json){
 
                 return json['msg'];
@@ -121,7 +121,7 @@ $(function() {
 
 function newCarrera(){
     $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/carrera/NewCarrera.php",
+        url: "/TPAProyectoIntegrador/model/carrera/NewCarrera.php",
         type: "post",
         data: {
             nombreCarrera : $('#nombreCarrera').val(),planEstudios: $('#planEstudios').val()}
@@ -156,7 +156,7 @@ function showCarrera(idcarrera, nombrecarrera,planestudios) {
 function updateCarrera() {
     $.ajax(
         {
-            url: "http://localhost/TPAProyectoIntegrador/model/carrera/UpdateCarrera.php",
+            url: "/TPAProyectoIntegrador/model/carrera/UpdateCarrera.php",
             type: "post",
             data: {
                 idcarrera: $('#idcarrera').val(),
@@ -199,7 +199,7 @@ function deleteCarrera(idcarrera) {
                 ///Comienza a Borrar
                 $.ajax(
                     {
-                        url: "http://localhost/TPAProyectoIntegrador/model/carrera/DeleteCarrera.php",
+                        url: "/TPAProyectoIntegrador/model/carrera/DeleteCarrera.php",
                         type: "post",
                         data: {idcarrera: idcarrera}
                     }
