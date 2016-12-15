@@ -59,6 +59,7 @@
                         <i class="glyphicon glyphicon-user"></i>
                     </span>
                     <input class="form-control" type="text" id="materiaid2" name="materiaid2" placeholder="Ingrese la clave de la materia">
+                    <input class="hidden" id="materiaidentificador" name="materiaidentificador"/>
                 </div>
             </div>
 
@@ -272,6 +273,7 @@
             <thead>
                 <tr>
                     <th>Clave</th>
+                    <th>Clave Materia</th>
                     <th>Nivel Escolar</th>
                     <th>Tipo de Materia</th>
                     <th>Clave de area</th>

@@ -1,5 +1,10 @@
 $(function(){
 
+  $("#btnModificar").on('click', function () {
+        console.log("Le picaste al boton");
+        $("#frmEditMateria").submit();
+    });
+
 		$.ajax({
         url: '/TPAProyectoIntegrador/model/materias/getCarreras.php',
         type: 'GET',
@@ -86,6 +91,82 @@ $(function(){
        }
    });
 
+$('#frmEditMateria').validate({
+       rules:{
+           materiaid2:{
+               minlength: 3,
+               maxlength: 20,
+               required: true
+           },
+           clavearea2:{
+                minlength: 3,
+                maxlength: 20,
+                required: true
+           },
+           nombremateria2:{
+                minlength: 10,
+                maxlength: 50,
+                required: true
+           },
+           nombreabreviado2:{
+                minlength: 1,
+                maxlength: 50,
+                required: true
+           },
+           numerocreditos2:{
+                number: true,
+                required: true
+           }
+       },
+       messages:{
+            materiaid:{
+               minlength: "Minimo 3 caracteres",
+               maxlength: "Maximo 3 caracteres",
+               required: "El ID de la materia es requerido"
+           },
+           clavearea:{
+                minlength: "Minimo 3 caracteres",
+                maxlength: "Maximo 20 caracteres",
+                required: "La clave del area es requerido"
+           },
+           nombremateria:{
+                minlength: "Minimo 10 caracteres",
+                maxlength: "Maximo 50 caracteres",
+                required: "El nombre de la materia es requerido"
+           },
+           nombreabreviado:{
+                minlength: "Minimo 1 caracteres",
+                maxlength: "Maximo 50 caracteres",
+                required: "El nombre abreviado de la materia es requerido"
+           },
+           numerocreditos:{
+                number: "Solo numeros",
+                required: "El numero de creditos es requerido"
+           }
+       },
+       highlight: function (element){
+           $(element).closest('.form-group').addClass('has-error');
+       },
+       unhighlight: function (element){
+           $(element).closest('.form-group').removeClass('has-error');
+       },
+       errorElement: 'span',
+       errorClass: 'help-block',
+       errorPlacement: function(error, element){
+           if(element.parent('.input-group').length){
+               error.insertAfter(element.parent());
+           }else{
+               error.insertAfter(element);
+           }
+       },
+       submitHandler: function(form){
+            updateMateria();
+           return false;
+       }
+   });
+
+
+
     $('#tbMaterias').DataTable({
         responsive: true,
         language:{
@@ -101,6 +182,9 @@ $(function(){
         columns:[
             {
                 data:"materiaid"
+            },
+            {
+              data:"clave_materia"
             },
             {
                 data:"nivel_escolar"   
@@ -126,7 +210,7 @@ $(function(){
             {
                 data: function(row){
                   str="<div align='center'>";
-                  str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick='deleteMateria("+ row["materiaid"] +")'><i class='glyphicon glyphicon-trash'></i></button>";
+                  str+="<button id='btnBorrar' class='btn btn-danger btn-xs' onclick= 'deleteMateria("+row['materiaid']+")'><i class='glyphicon glyphicon-trash'></i></button>";
                   str+= "&nbsp;<button id='btnEditar' class = 'btn btn-success btn-xs' onClick = 'showMateria("+row['materiaid']+")'><i class='glyphicon glyphicon-edit'></i></button>";
                   str+="<div>";
                   return str;
@@ -143,13 +227,68 @@ $(function(){
 });
 
 function deleteMateria (mid) {
-    console.log("hola");
+    $.ajax({
+        url: "/TPAProyectoIntegrador/model/materias/deleteMateria.php",
+        type: "post",
+        data: {materiaid : mid}
+    }).done(
+        function(data){
+            if(data.code === 200){
+                $.growl.notice({ message: data.msg });
+                $('#tbMaterias').dataTable().api().ajax.reload();
+            }
+            else{
+                $.growl.error({ message: data.msg });
+            }
+            
+        }
+    ).fail(
+        function(){
+            $.growl.error({ message: "No hay mensaje que mostrar" });
+        }
+    );
     
 }
 
 function showMateria (mid) {
-    console.log("hola");
-    
+    $("#modalMateria").modal("show");
+    $.ajax({
+        url: '/TPAProyectoIntegrador/model/materias/getMateriaByID.php',
+        type: 'GET',
+        data: {materiaid: mid},
+        dataType: 'json'
+    }).done(function (json) {
+        if (json.code === 200) {
+            
+           
+            $('#materiaidentificador').val(json.msg["0"].carreraid);
+            $('#materiaid2').val(json.msg["0"].clave_materia);
+            $('#clavearea2').val(json.msg["0"].clave_area);
+            $('#nombremateria2').val(json.msg["0"].nombre_completo);
+            $('#nombreabreviado2').val(json.msg["0"].nombre_abrev);
+            $('#numerocreditos2').val(json.msg["0"].creditos);
+            
+            
+            if (json.msg["0"].nivel_escolar == "L") {
+                $('#cbNivelEscolar2 > option[value="L"]').attr('selected', 'selected');
+            } else {
+                $('#cbNivelEscolar2 > option[value="P"]').attr('selected', 'selected');
+            }
+
+            if (json.msg["0"].materia_tipo == "1") {
+                $('#cbMateriaTipo2 > option[value="1"]').attr('selected', 'selected');
+            } else if(json.msg["0"].materia_tipo == "2") {
+                $('#cbMateriaTipo2 > option[value="2"]').attr('selected', 'selected');
+            } else{
+                $('#cbMateriaTipo2 > option[value="3"]').attr('selected', 'selected');
+            }
+
+            $('#cbNombreCarrera2 > option[value="' + json.msg["0"].carreraid + '"]').attr('selected', 'selected');
+            
+            
+
+        }
+    });
 }
 
 function newMateria () {
@@ -174,6 +313,38 @@ function newMateria () {
                 $('#nombremateria').val('');
                 $('#nombreabreviado').val('');
                 $('#numerocreditos').val('');
+            }
+            else{
+                $.growl.error({ message: data.msg });
+            }
+            
+        }
+    ).fail(
+        function(){
+            $.growl.error({ message: "No hay mensaje que mostrar" });
+        }
+    );
+}
+
+
+function updateMateria () {
+  $.ajax({
+        url: "/TPAProyectoIntegrador/model/materias/updateMateria.php",
+        type: "post",
+        data: {materiaidentificador : $('#materiaidentificador').val(),
+                materiaid : $('#materiaid2').val(),
+                cbNivelEscolar: $('#cbNivelEscolar2').val(),
+                cbMateriaTipo: $('#cbMateriaTipo2').val(),
+                clavearea: $('#clavearea2').val(),
+                nombremateria: $('#nombremateria2').val(),
+                nombreabreviado: $('#nombreabreviado2').val(),
+                numerocreditos: $('#numerocreditos2').val(),
+                cbNombreCarrera: $('#cbNombreCarrera2').val()}
+    }).done(
+        function(data){
+            if(data.code === 200){
+                $.growl.notice({ message: data.msg });
+                $('#tbMaterias').dataTable().api().ajax.reload();
             }
             else{
                 $.growl.error({ message: data.msg });
