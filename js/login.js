@@ -47,7 +47,7 @@ $(function(){
 
 	function login(){
        $.ajax({
-        url: "http://localhost/TPAProyectoIntegrador/model/usuario/getLogin.php",
+        url: "/TPAProyectoIntegrador/model/usuario/getLogin.php",
         type: "post",
         data: {username : $('#username').val(),
               password : $('#password').val()}
