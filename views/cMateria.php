@@ -1,4 +1,47 @@
 <script type="text/javascript" src="js/cmateria.js"></script>
+<script type="text/javascript" src="js/importxmlmateria.js"></script>
+<!--AgregoMichel-->
+<div id="modalimport" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Subir archivo:</h3>
+            </div>
+            <div class="modal-body">
+            <label class="control-label">Selecciona el archivo XML</label>
+            <input type="file" id="files" name="file" class="" accept=".xml"> <br/>
+    
+            </div>
+    
+            <div class="modal-footer">
+                <button id="btnUpImport" type="button" class="btn-sm btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalimportxls" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Subir archivo:</h3>
+            </div>
+            <div class="modal-body">
+            <label class="control-label">Selecciona el archivo XLS</label>
+            <input type="file" id="files" name="file" class="" accept=".xls"> <br/>
+    
+            </div>
+    
+            <div class="modal-footer">
+                <button id="btnUpImportxls" type="button" class="btn-sm btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/AgregoMichel-->
 
 <div id="modalMateria" class="modal">
     <div class="modal-dialog">
@@ -204,6 +247,22 @@
         </form>
     </div>
 </div>
+
+<!--Agrego Michel-->
+<div class="col-md-6">
+    <h1>Importar catalogo por XML</h1>
+    <hr>
+    <br/><button class="btn btn-default" id="importxml">Importar por XML</button>
+    <hr>
+</div>
+
+<div class="col-md-6">
+    <h1>Importar catalogo por XLS</h1>
+    <hr>
+    <br/><button class="btn btn-default" id="importxls">Importar por XLS</button>
+    <hr>
+</div>
+<!--/Agrego Michel-->
 
 <div class="row">&nbsp;</div>
 
