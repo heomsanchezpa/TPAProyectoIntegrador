@@ -1,0 +1,77 @@
+$(function(){
+	$('#frmLogin').validate({
+		rules:{
+           username:{
+               minlength: 3,
+               maxlength: 20,
+               required: true
+           },
+           password:{
+               minlength: 3,
+               maxlength: 20,
+               required: true
+           }
+       },
+       messages:{
+           username:{
+               minlength: "Introduzca al menos tres caracteres",
+               maxlength: "Introdusca menos de 20 caracteres",
+               required: "Capture su nombre de usuario"
+           },
+           password:{
+               minlength: "Introduzca al menos tres caracteres",
+               maxlength: "Introdusca menos de 20 caracteres",
+               required: "Capture su contrase&Atilde;&plusmn;a"
+           }
+       },
+       highlight: function (element){
+           $(element).closest('.form-group').addClass('has-error');
+       },
+       unhighlight: function (element){
+           $(element).closest('.form-group').removeClass('has-error');
+       },
+       errorElement: 'span',
+       errorClass: 'help-block',
+       errorPlacement: function(error, element){
+           if(element.parent('.input-group').length){
+               error.insertAfter(element.parent());
+           }else{
+               error.insertAfter(element);
+           }
+       },
+       submitHandler: function(form){
+          login();
+          return false;
+       }
+	});
+
+	function login(){
+       $.ajax({
+        url: "http://localhost/TPAProyectoIntegrador/model/usuario/getLogin.php",
+        type: "post",
+        data: {username : $('#username').val(),
+              password : $('#password').val()},
+dataSrc:function(json){
+            console.log(json);
+              return json['data'];
+          }
+    }).done(
+        function(data){
+         console.log(data);
+            if(data.code === 200){
+                var url = "cpanel.php";
+                $(location).attr('href',url);
+            }
+            else{
+                $.growl.error({ message: data.msg });
+            }
+
+        }
+    ).fail(
+        function(){
+            $.growl.error({ message: "No hay mensaje que mostrar" });
+        }
+    );
+   }
+
+});
