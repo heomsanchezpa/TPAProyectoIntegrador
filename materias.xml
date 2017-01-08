@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="utf-8"?>
+<Materias>
+ <Materia>
+  <MateriaID>ASD-4590</MateriaID>
+  <NivelEscolar>L</NivelEscolar>
+  <TipoMateria>1</TipoMateria>
+  <ClaveArea>123</ClaveArea>
+  <NombreCompleto>Calculo Vectorial</NombreCompleto>
+  <NombreAbrev>Calculo Vec.</NombreAbrev>
+  <Creditos>5</Creditos>
+  <CarreraID>1</CarreraID>
+ </Materia>
+
+ </Materias>

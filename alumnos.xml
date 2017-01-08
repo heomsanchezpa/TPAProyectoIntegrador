@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="utf-8"?>
+<Alumnos>
+ <Alumno>
+  <NoControl>Naranja</NoControl>
+  <Carrera>Durango</Carrera>
+  <Semestre>4</Semestre>
+  <Status>A</Status>
+  <Reticula>Reticula</Reticula>
+  <Especialidad>Programacion Web</Especialidad>
+  <Nombre>Michel</Nombre>
+  <Apellidopat>Casillas</Apellidopat>
+  <Apellidomat>Ureña</Apellidomat>
+  <Nacimiento>02/02/1960</Nacimiento>
+  <Curp>5678987656</Curp>
+  <Sexo>M</Sexo>
+  <Periodo>Sabe</Periodo>
+  <Promedio>10.0</Promedio>
+  <Creditosapro>100</Creditosapro>
+  <Creditoscursa>100</Creditoscursa>
+  <Email>asd@gmail.com</Email>
+  <Nacionalidad>Mexicano</Nacionalidad>
+  <Nip>9876</Nip>
+
+ </Alumno>
+
+ </Alumnos>

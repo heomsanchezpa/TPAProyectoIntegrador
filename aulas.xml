@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="utf-8"?>
+<Aulas>
+ <Aula>
+  <Capacidad>40</Capacidad>
+  <Estatus>1</Estatus>
+  <Nombre>B4</Nombre>
+  <EdificioID>L</EdificioID>
+  <Observaciones>Ninguna</Observaciones>
+
+  
+ </Aula>
+
+ </Aulas>

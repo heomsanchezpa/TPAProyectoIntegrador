@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="utf-8"?>
+<Maestros>
+ <Maestro>
+  <NoTarjeta>5656</NoTarjeta>
+  <ClaveArea>45654</ClaveArea>
+  <RFC>4</RFC>
+  <AreaAcademica>453454</AreaAcademica>
+  <Nombre>Michel</Nombre>
+  <Apellidopat>Casillas</Apellidopat>
+  <Apellidomat>Ureña</Apellidomat>
+  <Sexo>M</Sexo>
+ </Maestro>
+
+ </Maestros>
