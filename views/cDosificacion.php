@@ -1,6 +1,8 @@
 
 <meta charset="UTF-8">
 <script type="text/javascript" src="js/cdocificacion.js"></script>
+<script type="text/javascript" src='js/plugins/pdfmake.min.js'></script>
+<script type="text/javascript" src='js/plugins/vfs_fonts.js'></script>
 <div class="container col-lg-12 col-md-12 col-sm-12">
     <form id="frmDosificacion" method="POST">
         <div class="row">
@@ -8,22 +10,19 @@
                 <label class="control-label" for="periodo">Periodo</label>
                 <div class="input-group">
                     <select class="form-control" id="periodo" name="periodo">
-                        <option value="ENE-JUN 2017">ENE-JUN 2016</option>
-                        <option value="AGO-DIC 2017">AGO-DIC 2016</option>
-                        <option value="ENE-JUN 2018">ENE-JUN 2017</option>
+                        <option value="ENE-JUN">ENE-JUN</option>
+                        <option value="AGO-DIC">AGO-DIC</option>
+                        <option value="VERANO">VERANO</option>
                     </select>
                 </div>
             </div>
 
 
             <div class="form-group col-lg-3 col-md-3  col-sm-12">
-                <label class="control-label" for="planEstudios">Plan de estudios grupo base</label>
+                <label class="control-label" for="anioPeriodo">Año del Periodo</label>
                 <div class="input-group">
-                    <select class="form-control" id="planEstudios" name="planEstudios">
-                        <option value="ISIC-2010-224">ISIC-2010-224</option>
-                        <option value="ISIC-2010-225">ISIC-2010-225</option>
-                        <option value="ISIC-2010-226">ISIC-2010-226</option>
-                    </select>
+
+                    <input class="form-control" type = "number" id="anioPeriodo" name="anioPeriodo" placeholder="Año" min="2017" max="9999">
                 </div>
             </div>
 
@@ -32,9 +31,6 @@
                 <div class="input-group">
 
                     <select class="form-control" id="asignatura" name="asignatura">
-                        <option value="1">TSO</option>
-                        <option value="2">TPA</option>
-                        <option value="3">Seguridad en Redes</option>
                     </select>
                 </div>
             </div>
@@ -56,9 +52,6 @@
                 <div class="input-group">
 
                     <select class="form-control" id="maestro" name="maestro">
-                        <option value="1">L. I. Miguel Ángel Martinez Gonzalez</option>
-                        <option value="2">Ing. Fulanito de tal</option>
-                        <option value="3">MTI. Manganito</option>
                     </select>
                 </div>
             </div>
@@ -66,9 +59,7 @@
                 <label class="control-label"
                        for="carrera">Carrera (s)</label>
                 <div class="input-group">
-                    <select class="form-control" id="carrera" name="carrera" multiple>
-                        <option value="idMateria1">Ingenieria en Sistemas Computacionales</option>
-                        <option value="idMateria2">Ingenieria en Tecnologias de la Información y la Comunicación</option>
+                    <select class="form-control" id="carrera" name="carrera">
                     </select>
                 </div>
             </div>
@@ -557,8 +548,9 @@
                 <th>ID</th>
                 <th>Periodo</th>
                 <th>Plan de Estudios</th>
-                <th>Maestro</th>
                 <th>Carrera</th>
+                <th>Maestro</th>
+                <th>Materia</th>
                 <th>Horas Prácticas</th>
                 <th>Horas Teoricas</th>
                 <th>Caracterización Asignatura</th>

@@ -1,9 +1,9 @@
 <?php
 include("../../controller/conexiondb.php");
-
+$idcomp = $_POST["idcomp"];
 $jsondata = array();
 
-if($result = $database->query("SELECT *,(SELECT `name` FROM `maestro` as `m` WHERE `d`.`idmaestro` = `m`.`no_tarjeta`) as `maestro`,(SELECT `planEstudios` FROM `carrera` as `m` WHERE `d`.`idcarrera` = `m`.`idcarrera`) as `planestudios`,(SELECT `nombrecarrera` FROM `carrera` as `m` WHERE `d`.`idcarrera` = `m`.`idcarrera`) as `carrera`, (SELECT `nombre_abrev` FROM `materias` as `m` WHERE `d`.`idmateria` = `m`.`materiaid`) as `materia` FROM `dosificacion` as `d`")){
+if($result = $database->query("SELECT * FROM `indicador` where idcomp = ".$idcomp)){
     if ($result -> num_rows > 0) {
         $jsondata["code"] = 200;
         $jsondata["msg"] = array();
