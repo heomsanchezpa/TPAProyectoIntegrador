@@ -39,9 +39,9 @@
                 <label class="control-label"
                        for="claveAsignatura">Clave Asignatura</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <input class="form-control" id="claveAsignatura" name="claveAsignatura" placeholder="Clave Asignatura" readonly>
                 </div>
             </div>
@@ -67,9 +67,9 @@
                 <label class="control-label"
                        for="horasTeoria">Horas Teoricas</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <input type = "number"  min="0" max="10" class="form-control" id="horasTeoria" name="horasTeoria" placeholder="Horas Teoricas">
                 </div>
             </div>
@@ -78,9 +78,9 @@
                 <label class="control-label"
                        for="horasPracticas">Horas Prácticas</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
+                        <!--span class="input-group-addon">
                             <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                        </span-->
                     <input type = "number"  min="0" max="10" class="form-control" id="horasPracticas" name="horasPracticas" placeholder="Horas Prácticas">
                 </div>
             </div>
@@ -89,9 +89,9 @@
                 <label class="control-label"
                        for="creditos">Créditos</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <input type = "number"  min="0" max="10" class="form-control" id="creditos" name="creditos" placeholder="Créditos">
                 </div>
             </div>
@@ -102,9 +102,9 @@
                 <label class="control-label"
                        for="caracterizacionDeLaAsignatura">Caracterización de la asignatura</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <textarea class="form-control" rows="5" id="caracterizacionDeLaAsignatura" name="caracterizacionDeLaAsignatura" placeholder="Caracterización de la asignatura"></textarea>
                 </div>
             </div>
@@ -115,9 +115,9 @@
                 <label class="control-label"
                        for="intencionDidactica">Intención Didáctica</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <textarea class="form-control" rows="5" id="intencionDidactica" name="intencionDidactica" placeholder="Intención Didáctica"></textarea>
                 </div>
             </div>
@@ -128,9 +128,9 @@
                 <label class="control-label"
                        for="competenciaAsignatura">Competencia de la asignatura</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <textarea class="form-control" rows="5" id="competenciaAsignatura" name="competenciaAsignatura" placeholder="Competencia de la asignatura"></textarea>
                 </div>
             </div>
@@ -141,9 +141,9 @@
                 <label class="control-label"
                        for="fuentesInformacion">Fuentes de información y apoyos didácticos</label>
                 <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+                  <!--span class="input-group-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                  </span-->
                     <textarea class="form-control" rows="5" id="fuentesInformacion" name="fuentesInformacion" placeholder="Fuentes de información y apoyos didácticos"></textarea>
                 </div>
             </div>
@@ -269,9 +269,9 @@
         <label class="control-label"
                for="competenciaEspecifica">Competencia específica</label>
         <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+          <!--span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+          </span-->
             <input class="form-control" id="competenciaEspecifica" name="competenciaEspecifica" placeholder="Nombre Competencia Específica">
         </div>
     </div>
@@ -279,9 +279,9 @@
         <label class="control-label"
                for="noCompetencia">Competencia No.</label>
         <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+          <!--span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+          </span-->
             <input type = "number"  min="1" max="10" class="form-control" id="noCompetencia" name="noCompetencia" placeholder="Competencia No.">
         </div>
     </div>
@@ -289,9 +289,9 @@
         <label class="control-label"
                for="horasTeoricas">Horas teóricas</label>
         <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+          <!--span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+          </span-->
             <input type = "number"  min="0" max="10" class="form-control" id="horasTeoricas" name="horasTeoricas">
         </div>
     </div>
@@ -299,9 +299,9 @@
         <label class="control-label"
                for="horasPractica">Horas Prácticas</label>
         <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+          <!--span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+          </span-->
             <input type = "number"  min="1" max="10" class="form-control" id="horasPractica" name="horasPractica" >
         </div>
     </div>
@@ -310,9 +310,9 @@
         <label class="control-label"
                for="descripcion">Descripción</label>
         <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
+          <!--span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+          </span-->
             <textarea class="form-control" rows="5" id="descripcion" name="descripcion" placeholder="Descripción"></textarea>
         </div>
     </div>

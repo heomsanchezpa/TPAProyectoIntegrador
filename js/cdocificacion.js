@@ -137,7 +137,7 @@ function showDosi(iddosi, periodo, idmateria,planestudios,ht,hp,maestro,carrera,
     if(json.code===200)
     $.each(json.msg, function(i,row){
       console.log("NOERROR!");
-      madeTable(iddosi,periodo,row.nombre_completo,planestudios,idmateria,ht,hp,row.creditos,maestro,carrera,caracterizacionAsignatura,intencionDidactica,competenciaAsignatura,bibliografia););
+      madeTable(iddosi,periodo,row.nombre_completo,planestudios,idmateria,ht,hp,row.creditos,maestro,carrera,caracterizacionAsignatura,intencionDidactica,competenciaAsignatura,bibliografia);
       //madeTable(iddosi,periodo,row.clave_area,planestudios,idmateria,ht,hp,4,maestro,carrera,caracterizacionAsignatura,intencionDidactica,competenciaAsignatura,bibliografia); //test
       return;
     });
