@@ -13,12 +13,11 @@ $(function(){
         },
         columns:[
             {
-                data:"id_maestro"
+                data:"usuarioname"
             },
             {
-                data:"id_materia"   
+                data:"nombre_completo"
             }
-
         ]
             
        }); 

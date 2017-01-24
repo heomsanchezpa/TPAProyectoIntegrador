@@ -8,9 +8,10 @@
             <thead>
                 <tr>
                     <th>Maestro</th>
-                    <th>Materia que imparte</th>
+                    <th>Materias</th>
                 </tr>
             </thead>
         </table>
     </div>
 </div>
+

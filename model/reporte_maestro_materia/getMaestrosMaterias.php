@@ -3,7 +3,7 @@
 
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM `maestros-materias`")){
+	if($result = $database->query("select usuario.usuarioname, materias.nombre_completo FROM usuario INNER JOIN materiaspormaestros ON usuario.usuarioid = materiaspormaestros.maestroid INNER JOIN materias ON materiaspormaestros.materiaid = materias.materiaid ")){
 		if ($result -> num_rows > 0) {
 			$jsondata["code"] = 200;
 			$jsondata["msg"] = array();
