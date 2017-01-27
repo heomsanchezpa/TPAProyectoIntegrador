@@ -45,7 +45,7 @@ $(function(){
                     if ($title.length > 0) {
                         $title.each(function() {
                             var nombre = $(this).find('Nombre').text(),
-                                planestudios = $(this).find('Abreviacion').text();
+                                planestudios = $(this).find('PlanEstudios').text();
                                 
 
 
@@ -53,7 +53,7 @@ $(function(){
                             $.ajax({
                                 data: {
                                     nombreCarrera: nombre,
-									planEstudios: planestudios,
+									planEstudios: planestudios
                                     
 
 									

@@ -130,12 +130,7 @@
     <hr>
 </div>
 
-<div class="col-md-6">
-    <h1>Importar catalogo por XLS</h1>
-    <hr>
-    <br/><button class="btn btn-default" id="importxls">Importar por XLS</button>
-    <hr>
-</div>
+
 <!--/Agrego Michel-->
 
 <div class="row">

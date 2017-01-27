@@ -57,7 +57,7 @@ $(function(){
 
                             $.ajax({
                                 data: {
-                                    materiaid: materiaid,
+                                    clavemateria: materiaid,
 									cbNivelEscolar: nivel_escolar,
                                     cbMateriaTipo: materia_tipo,
 									clavearea: clave_area,
@@ -74,7 +74,7 @@ $(function(){
                                     $("#resultado").html("Procesando, espere por favor...");
                                 },
                                 success: function(response) {
-                                	console.log('bien');
+                                	console.log('bien'+response.code);
 
 
                                 }
