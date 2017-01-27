@@ -4,6 +4,13 @@ $(function(){
     });
    $('#tableMaestros').DataTable({
        responsive: true,
+         dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
         language:{
             url:"http://cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
@@ -210,18 +217,6 @@ $(function(){
  });
 
 });
-
-$(document).ready(function() {
-    $('#tableMaestros').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );
 
 
 

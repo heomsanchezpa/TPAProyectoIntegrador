@@ -4,10 +4,9 @@
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$passcode = sha1(md5($password));
-
 	$jsondata = array();
 
-	if($result = $database->query("SELECT * FROM usuario WHERE usuarioname = '". $username ."' AND password = '". $passcode ."' AND status = 'a'")){
+	if($result = $database->query("SELECT * FROM usuario WHERE usuarioname = '". $username ."' AND password = '". $password ."' AND status = 'a'")){
 
 		if ($result -> num_rows > 0) {
 

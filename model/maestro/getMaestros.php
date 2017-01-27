@@ -12,11 +12,10 @@
 			}
 			$jsondata["details"] = "OK";
 		}else{
-			$jsondata["code"] = 401;
-			$jsondata["msg"] = "No tiene acceso al sistema";
-			$jsondata["details"] = "OK";
+				$jsondata["code"] = 401;
+				$jsondata["msg"] = "";
+				
 		}
-
 		$result -> close();
 	}else{
 		echo "Error en la consulta";

@@ -4,7 +4,7 @@
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$roleid = $_POST["roleid"];
-
+	return $password;
 	$passwordcode = sha1(md5($password));
 
 	$jsondata = array();
