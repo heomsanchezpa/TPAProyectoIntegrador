@@ -11,7 +11,7 @@ $(function(){
         }
         );
 
-    }); //Carreras
+    });
 
     $.ajax({
         url: '/TPAProyectoIntegrador/model/materias/getMaterias.php',
@@ -24,7 +24,7 @@ $(function(){
         }
         );
 
-    }); //Asignaturas
+    });
 
      $('#frmMateria').validate({
        rules:{
