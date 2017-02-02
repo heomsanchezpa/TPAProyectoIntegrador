@@ -15,7 +15,6 @@
                                     <i class="glyphicon glyphicon-king"></i>
                                 </span>
                                 <select name="cbCarrera" id="cbCarrera" class="form-control">
-                                	<option value="L">Ingenieria en Sistemas Computacionales</option>
                                 </select>
                             </div>
                         </div>
@@ -27,8 +26,6 @@
                         <i class="glyphicon glyphicon-king"></i>
                     </span>
                     <select name="cbMateria" id="cbMateria" class="form-control">
-                    	<option value="L">Ingenieria de Software</option>
-                    	<option value="P">Gestion de proyectos de software</option>
                     </select>
                 </div>
             </div>
